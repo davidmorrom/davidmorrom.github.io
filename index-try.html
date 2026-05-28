@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Moreno Romero — Developer & Tech Consultant</title>
+  <meta name="description" content="Portfolio de David Moreno Romero, Developer & Tech Consultant en Madrid: ERP (Sage 200), integración de sistemas, automatización y desarrollo a medida, de principio a fin." />
+  <!-- TODO: favicon (PASO 5) -->
+  <!-- TODO: metadatos Open Graph + imagen OG para compartir en LinkedIn (PASO 5) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=hanken-grotesk@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAVEGACIÓN ============ -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="nav__brand" href="#inicio">David Moreno Romero</a>
+      <ul class="nav__list">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ 1. HERO ============ -->
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <p class="hero__eyebrow">Developer &amp; Tech Consultant · Madrid, España</p>
+      <h1 id="hero-title" class="hero__title">David Moreno Romero</h1>
+      <p class="hero__tagline">
+        Construyo soluciones donde la tecnología se encuentra con el negocio: ERP,
+        integración de sistemas, automatización y desarrollo a medida — de principio a fin.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="https://es.linkedin.com/in/davidmorrom" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/davidmorrom" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <a class="hero__scroll-hint" href="#sobre-mi" aria-label="Bajar al contenido">Desplázate ↓</a>
+    </section>
+
+    <!-- ============ 2. SOBRE MÍ ============ -->
+    <section id="sobre-mi" class="section" aria-labelledby="sobre-mi-title">
+      <h2 id="sobre-mi-title" class="section__title">Sobre mí</h2>
+      <div class="about__body">
+        <p>
+          Mi historia con la tecnología empieza pronto. De adolescente me regalaron un
+          portátil que vino defectuoso, y pasé incontables horas rompiéndolo y reparándolo:
+          reinstalando el sistema, cambiando discos, leyendo documentación y personalizando
+          cada detalle. Esa obsesión por entender cómo funcionan las cosas marcó el resto del
+          camino.
+        </p>
+        <p>
+          De ahí salió la formación técnica —Sistemas Microinformáticos, luego Desarrollo de
+          Aplicaciones Multiplataforma— y un máster en Ciberseguridad que estudié por interés
+          propio, porque algunas cosas se aprenden mejor cuando las mueve la curiosidad.
+        </p>
+        <p>
+          Hoy combino una base técnica sólida con visión de negocio: diseño soluciones que
+          son tecnológicamente correctas y operativamente útiles. Me defino por trabajar
+          end-to-end —del análisis a la puesta en marcha—, por hablar tanto el idioma del
+          negocio como el del código, y por ser metódico: si algo se hace, se hace bien.
+        </p>
+      </div>
+      <ul class="about__tags" aria-label="Forma de trabajar">
+        <li>Curioso</li>
+        <li>End-to-end</li>
+        <li>Puente negocio/técnica</li>
+        <li>Metódico</li>
+      </ul>
+    </section>
+
+    <!-- ============ 3. STACK ============ -->
+    <section id="stack" class="section" aria-labelledby="stack-title">
+      <h2 id="stack-title" class="section__title">Stack &amp; Tecnologías</h2>
+
+      <div class="stack__group">
+        <h3 class="stack__category">Backend / Lenguajes</h3>
+        <ul class="chips">
+          <li>C# / .NET (Framework y Core)</li>
+          <li>VB.NET</li>
+          <li>Node.js</li>
+          <li>T-SQL</li>
+          <li>PowerShell / Bash</li>
+          <li>Java (formación)</li>
+        </ul>
+      </div>
+
+      <div class="stack__group">
+        <h3 class="stack__category">Plataforma / ERP</h3>
+        <ul class="chips">
+          <li>Sage 200</li>
+          <li>Sage 50</li>
+          <li>SQL Server</li>
+          <li>Microsoft 365</li>
+        </ul>
+      </div>
+
+      <div class="stack__group">
+        <h3 class="stack__category">Frontend / Web</h3>
+        <ul class="chips">
+          <li>Next.js</li>
+          <li>React</li>
+          <li>HTML/CSS/JS</li>
+        </ul>
+      </div>
+
+      <div class="stack__group">
+        <h3 class="stack__category">Infra / Integraciones</h3>
+        <ul class="chips">
+          <li>EDI / B2B</li>
+          <li>APIs REST / SOAP</li>
+          <li>Docker</li>
+          <li>Git / GitHub</li>
+          <li>Azure (nociones)</li>
+          <li>AWS (formación)</li>
+        </ul>
+      </div>
+
+      <div class="stack__group">
+        <h3 class="stack__category">IA / Automatización</h3>
+        <ul class="chips">
+          <li>Desarrollo asistido por IA</li>
+          <li>MCP servers / Claude Code</li>
+          <li>Microsoft Power Platform (Power Automate, Power Apps)</li>
+          <li>Pilotos de Copilot</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 4. EXPERIENCIA ============ -->
+    <section id="experiencia" class="section" aria-labelledby="experiencia-title">
+      <h2 id="experiencia-title" class="section__title">Experiencia</h2>
+
+      <ol class="timeline">
+
+        <li class="job">
+          <header class="job__head">
+            <h3 class="job__company">ORS Consulting</h3>
+            <p class="job__meta">enero 2026 – actualidad · Madrid</p>
+          </header>
+          <p class="job__note">Dos roles simultáneos:</p>
+
+          <div class="job__role">
+            <h4 class="job__title">Consultor Junior ERP Sage · Integración y Desarrollo de Sistemas</h4>
+            <ul>
+              <li>Administración y configuración integral del entorno Sage 200: módulos y adaptación del ERP a las necesidades operativas.</li>
+              <li>Ingeniería de datos sobre la base relacional de Sage: esquemas, relaciones, optimización de consultas SQL.</li>
+              <li>Personalización del ERP con campos a medida (UDFs) y lógica de negocio.</li>
+              <li>Desarrollo de herramientas internas y soluciones externas conectadas a Sage.</li>
+              <li>Consultoría directa con cliente: toma de requerimientos, incidencias y soporte.</li>
+              <li>Stack: Sage 200, SQL Server, bases de datos relacionales, consultoría de procesos.</li>
+            </ul>
+          </div>
+
+          <div class="job__role">
+            <h4 class="job__title">Desarrollador de software</h4>
+            <ul>
+              <li>Desarrollo end-to-end del ecosistema web corporativo (orsconsulting.com) en Next.js, con foco en rendimiento y SEO técnico (SSR/SSG).</li>
+              <li>Captación de leads mediante integración de APIs en formularios dinámicos.</li>
+              <li>Gestión técnica del despliegue, configuración de servidores y dominios.</li>
+              <li>Módulos de privacidad y gestión de consentimiento de cookies.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="job">
+          <header class="job__head">
+            <h3 class="job__company">Deloitte</h3>
+            <p class="job__meta">abril 2024 – enero 2026 · Madrid</p>
+          </header>
+          <div class="job__role">
+            <h4 class="job__title">Técnico DTech Practitioner — Digitalization <span class="job__title-note">(tras 3 meses iniciales de prácticas)</span></h4>
+            <ul>
+              <li>Automatización de procesos con Power Automate y Power Apps.</li>
+              <li>Gestión de entornos Microsoft 365: licencias, buzones, accesos; soporte en Teams.</li>
+              <li>Participación en pilotos de Copilot: coordinación de pruebas y recogida de feedback para la adopción de IA.</li>
+              <li>Desarrollo integral, en Power Apps, de una app interna para gestionar la renovación por fases del parque de iPhone corporativos (campaña iPhone 17): autenticación por identidad de Microsoft, cruce contra datos maestros en SharePoint, validación de elegibilidad, captura de la decisión del empleado y reserva de cita por oficina.</li>
+              <li>Soporte técnico y resolución de incidencias (ServiceNow), coordinación con equipos globales en despliegues.</li>
+            </ul>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- ============ 5. PROYECTOS ============ -->
+    <section id="proyectos" class="section" aria-labelledby="proyectos-title">
+      <h2 id="proyectos-title" class="section__title">Proyectos</h2>
+      <p class="projects__intro">
+        Cuatro proyectos que comparten ADN: arquitectura cuidada, privacidad por diseño e
+        IA/automatización con propósito. Van del producto personal (SOMA, Sanea) al proyecto
+        profesional —un SaaS comercial con cumplimiento legal y criptografía (Registro de
+        Horario) y herramientas internas en entorno corporativo (la app de Deloitte)—. No son
+        proyectos sueltos: muestran un patrón, un desarrollador que construye productos
+        completos de principio a fin.
+      </p>
+
+      <div class="projects__grid">
+
+        <!-- Proyecto 1 -->
+        <article class="project project--professional">
+          <p class="project__badge">Proyecto profesional</p>
+          <h3 class="project__name">ORS Registro de Horario <span class="project__company">(ORS)</span></h3>
+          <p class="project__hook">
+            SaaS multi-tenant de registro horario laboral con integridad criptográfica
+            demostrable, diseñado para el marco legal español.
+          </p>
+          <p class="project__desc">
+            Toda empresa en España está obligada por ley (art. 34.9 ET, RDL 8/2019) a
+            registrar la jornada diaria, conservarla 4 años y tenerla disponible para la
+            Inspección de Trabajo. Muchas soluciones flojean en lo esencial: registros
+            editables o sin evidencia de no manipulación. Esta app lo resuelve con fichaje
+            append-only encadenado por hash SHA-256 y cierre diario sellado por una Autoridad
+            de Sellado de Tiempo (TSA RFC 3161), de modo que se puede probar ante la Inspección
+            que ningún registro se ha alterado. Tres superficies: web de escritorio (RRHH),
+            PWA móvil (empleado, con modo offline) y kiosco táctil (PIN/NFC). Incluye turnos,
+            cálculo de horas, ausencias con aprobación, portal para el inspector y exportación
+            oficial (PDF firmado + CSV con hashes).
+          </p>
+          <ul class="chips project__stack">
+            <li>Node.js 22</li>
+            <li>NestJS</li>
+            <li>Prisma</li>
+            <li>PostgreSQL 16 (RLS multi-tenant)</li>
+            <li>Redis</li>
+            <li>BullMQ</li>
+            <li>Next.js 15</li>
+            <li>React 19</li>
+            <li>Tailwind</li>
+            <li>TanStack Query</li>
+            <li>PWA offline</li>
+            <li>SHA-256 sobre JSON canonicalizado (RFC 8785)</li>
+            <li>TSA RFC 3161</li>
+            <li>AES-256-GCM</li>
+            <li>Docker</li>
+            <li>Hetzner</li>
+            <li>Grafana/Loki/Prometheus</li>
+            <li>CI/CD GitHub Actions</li>
+            <li>Vitest/Playwright/k6</li>
+            <li>Turborepo + pnpm (TypeScript)</li>
+          </ul>
+          <p class="project__status"><strong>Estado:</strong> En fase final de hardening pre-producción (núcleo construido y validado; pendientes los gates de seguridad y cumplimiento antes del go-live).</p>
+          <p class="project__why"><strong>¿Por qué?</strong> Producto propio de ORS para un dolor real de su mercado (registro horario fiable y no manipulable), en modelo marca blanca. Anticipa el Real Decreto de Registro de Jornada en tramitación.</p>
+        </article>
+
+        <!-- Proyecto 2 -->
+        <article class="project">
+          <h3 class="project__name">SOMA</h3>
+          <p class="project__hook">
+            App personal multiplataforma de optimización de salud: centraliza datos dispersos
+            de wearables y analíticas en un score diario tipo Whoop, con análisis por IA.
+          </p>
+          <p class="project__desc">
+            Datos de salud repartidos en muchas apps (wearables, PDFs de analíticas, registros
+            manuales) sin punto de consolidación ni correlación. SOMA los unifica y los
+            convierte en un score compuesto (0–100) ponderando varios pilares (sueño, actividad,
+            adherencia, composición corporal, tensión). Parsea analíticas en PDF, automatiza el
+            tracking y usa IA para detectar correlaciones y lanzar alertas proactivas. 10 módulos
+            operativos + un sistema propio de import/export (SOMA-DIS) en JSON/CSV con validación
+            por schema y upsert por clave natural.
+          </p>
+          <ul class="chips project__stack">
+            <li>React Native (Expo)</li>
+            <li>React (web)</li>
+            <li>Turborepo (monorepo)</li>
+            <li>Supabase (PostgreSQL + Auth + Storage + Realtime)</li>
+            <li>Row Level Security desde día 1</li>
+            <li>Health Connect</li>
+            <li>IA (Llama 3 / Gemini)</li>
+            <li>Expo Notifications + Edge Functions</li>
+            <li>pdf.js</li>
+            <li>Arquitectura offline-first</li>
+            <li>Infra ≤5 €/mes sobre free tiers</li>
+          </ul>
+          <p class="project__status"><strong>Estado:</strong> En uso. App funcional con sus módulos operativos.</p>
+          <p class="project__why"><strong>¿Por qué?</strong> Necesidad propia + vehículo de aprendizaje de un stack (React Native + Supabase) fuera de su terreno habitual (.NET/Node/SQL Server).</p>
+        </article>
+
+        <!-- Proyecto 3 -->
+        <article class="project">
+          <h3 class="project__name">Sanea</h3>
+          <p class="project__hook">
+            App de gestión financiera personal que reintroduce, por diseño, la fricción de
+            gastar que las tarjetas de crédito eliminan.
+          </p>
+          <p class="project__desc">
+            Reto de diseño de producto: las tarjetas y los fraccionamientos eliminan el "dolor"
+            de gastar y favorecen el ciclo de deuda. Sanea lo combate con un sistema de sobres
+            digitales (la nómina se reparte automáticamente en categorías y cada gasto descuenta
+            en tiempo real) y fricción intencional (cuando un sobre se vacía, exige confirmación
+            explícita antes de seguir). Añade módulo de deuda con calculadora de amortización
+            (avalancha vs bola de nieve) que muestra fecha de libertad financiera y coste real en
+            intereses, patrimonio neto en tiempo real, importación de extractos CSV con
+            deduplicación, alertas de patrones y evolución histórica con exportación a PDF.
+            Datos 100% locales, candado biométrico + PIN, backup cifrado AES-256-GCM.
+          </p>
+          <ul class="chips project__stack">
+            <li>React Native + Expo SDK 52</li>
+            <li>TypeScript strict</li>
+            <li>Expo Router</li>
+            <li>SQLite (expo-sqlite) + Drizzle ORM</li>
+            <li>Zustand + React Query</li>
+            <li>decimal.js (dinero en céntimos, nunca floats)</li>
+            <li>react-hook-form + zod</li>
+            <li>papaparse</li>
+            <li>@noble/ciphers + @noble/hashes (AES-256-GCM)</li>
+            <li>react-native-svg</li>
+            <li>EAS Build</li>
+          </ul>
+          <p class="project__status"><strong>Estado:</strong> En uso activo (APK firmado en dispositivo Android; funcionalidad core completa).</p>
+          <p class="project__why"><strong>¿Por qué?</strong> Una idea/encargo: resolver un problema concreto de UX financiera —cómo crear el hábito y la fricción correctos sin conectar con el banco ni ceder datos a terceros.</p>
+        </article>
+
+        <!-- Proyecto 4 (profesional) -->
+        <article class="project project--professional">
+          <p class="project__badge">Proyecto profesional</p>
+          <h3 class="project__name">App de Renovación de Dispositivos Corporativos <span class="project__company">(Deloitte)</span></h3>
+          <p class="project__hook">
+            Aplicación interna end-to-end, desarrollada en Power Apps, para gestionar la
+            renovación del parque de iPhone corporativos por fases.
+          </p>
+          <p class="project__desc">
+            Automatiza un proceso logístico que de otro modo sería manual y propenso a errores:
+            la renovación de dispositivos móviles corporativos (campaña del iPhone 17), desplegada
+            por fases según el terminal previo de cada empleado. La app identifica al usuario por
+            su cuenta de Microsoft, cruza su identidad contra unos datos maestros en SharePoint
+            para determinar qué terminal le corresponde, y aplica validación condicional: si no
+            hay dispositivo asignado, el flujo no avanza. El empleado elige renovar o devolver el
+            dispositivo y si necesita soporte de carga inalámbrica; todo queda registrado y se
+            consolida para el proceso de aprovisionamiento de hardware. Finalmente, la app ofrece
+            la reserva de cita —según la oficina del empleado— para recoger el nuevo dispositivo y
+            entregar el antiguo.
+          </p>
+          <ul class="chips project__stack">
+            <li>Microsoft Power Apps</li>
+            <li>Power Platform</li>
+            <li>SharePoint (listas como datos maestros y registro)</li>
+            <li>Integración con identidad de Microsoft 365</li>
+            <li>Exportación a Excel para aprovisionamiento</li>
+          </ul>
+          <p class="project__status"><strong>Estado:</strong> Desarrollado y entregado durante la etapa en Deloitte. Diseñado para despliegue por fases (primero un grupo de usuarios, luego el resto).</p>
+          <p class="project__why"><strong>¿Por qué?</strong> Necesidad real de la organización: orquestar una renovación masiva de dispositivos de forma controlada, con validación de elegibilidad y reserva de citas, sin gestión manual. Demuestra desarrollo integral de una herramienta interna con lógica de negocio real (autenticación, cruce de datos, validación condicional, flujo de decisiones y reserva).</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ 6. FORMACIÓN ============ -->
+    <section id="formacion" class="section" aria-labelledby="formacion-title">
+      <h2 id="formacion-title" class="section__title">Formación &amp; Certificaciones</h2>
+
+      <div class="formacion__block">
+        <h3 class="formacion__subtitle">Formación</h3>
+        <ol class="education">
+          <li>
+            <h4>Máster propio en Ciberseguridad</h4>
+            <p class="education__meta">UNIR · oct 2024 – jul 2025</p>
+          </li>
+          <li>
+            <h4>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)</h4>
+            <p class="education__meta">Universidad Europea · sep 2022 – jun 2024</p>
+          </li>
+          <li>
+            <h4>Técnico en Sistemas Microinformáticos y Redes (SMR)</h4>
+            <p class="education__meta">IES Alonso de Madrigal · 2020 – 2022</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="formacion__block">
+        <h3 class="formacion__subtitle">Certificaciones</h3>
+
+        <div class="certs__group">
+          <h4 class="certs__category">Sage 200 <span class="certs__meta">· Sage · 2026</span></h4>
+          <ul class="chips">
+            <li>Gestión</li>
+            <li>Análisis de Negocio</li>
+            <li>Producción Básica</li>
+            <li>Plataforma Avanzada (Seguridad)</li>
+            <li>Gestión Documental</li>
+          </ul>
+        </div>
+
+        <div class="certs__group">
+          <h4 class="certs__category">Power Platform</h4>
+          <ul class="chips">
+            <li>Administración y Gobernanza de Power Platform <span class="certs__meta">· CrossPoint 365 · 2025</span></li>
+            <li>Power Automate for Power Apps Developers <span class="certs__meta">· Udemy · 2024</span></li>
+          </ul>
+        </div>
+
+        <div class="certs__group">
+          <h4 class="certs__category">Fundamentos</h4>
+          <ul class="chips">
+            <li>Java <span class="certs__meta">· OpenWebinars · 2023</span></li>
+            <li>MySQL <span class="certs__meta">· OpenWebinars · 2024</span></li>
+            <li>Linux <span class="certs__meta">· OpenWebinars · 2024</span></li>
+            <li>AWS Educate — Compute · Storage · Networking · Databases <span class="certs__meta">· AWS · 2024</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="formacion__block">
+        <h3 class="formacion__subtitle">Idiomas</h3>
+        <ul class="langs">
+          <li>Español — Nativo / Bilingüe</li>
+          <li>Inglés — Profesional</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 7. CONTACTO ============ -->
+    <section id="contacto" class="section contact" aria-labelledby="contacto-title">
+      <h2 id="contacto-title" class="contact__title">Hablemos.</h2>
+      <div class="contact__cta">
+        <a class="btn btn--primary" href="https://es.linkedin.com/in/davidmorrom" target="_blank" rel="noopener noreferrer">Conectar en LinkedIn</a>
+        <a class="btn" href="https://github.com/davidmorrom" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <p>David Moreno Romero · 2026</p>
+    <p>Hecho con HTML/CSS/JS · GitHub Pages</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

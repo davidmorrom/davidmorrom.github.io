@@ -48,7 +48,7 @@ No son el sitio en sí: son las instrucciones, el contenido y las reglas.
 - Enlaces: LinkedIn + GitHub. Contacto vía LinkedIn.
 - Estructura: single-page, 7 secciones (ver `docs/STRUCTURE.md`).
 - Diseño: oscuro + gradiente distintivo coral→violeta→turquesa (ver `docs/DESIGN.md`).
-- Proyectos: ORS Registro de Horario, SOMA, Sanea.
+- Proyectos: ORS Registro de Horario, SOMA, Sanea, App Renovación Dispositivos (Deloitte).
 - Tono: equilibrado y verificable.
 
 ## Decisiones abiertas (ajustables en construcción)

@@ -1,0 +1,483 @@
+/* =========================================================================
+   David Moreno Romero — Portfolio
+   PASO 3 — Diseño visual.
+   ESTADO: HERO diseñado. Resto de secciones en BASE OSCURA legible
+   (todavía sin art direction; se diseñan una a una).
+   ========================================================================= */
+
+/* ---------- Tokens ---------- */
+:root {
+  /* Paleta (DESIGN.md) */
+  --bg-void:   #0a0b0f;
+  --bg-raised: #13151c;
+  --ink:       #f4f5f7;
+  --ink-muted: #9aa0ad;
+  --line:      #23262f;
+
+  --accent-a: #ff5e3a; /* coral */
+  --accent-b: #b14cff; /* violeta */
+  --accent-c: #2de2c8; /* turquesa (apoyo) */
+  --grad-hero: linear-gradient(115deg, #ff5e3a 0%, #b14cff 60%, #2de2c8 120%);
+
+  /* Tipografía */
+  --font-display: "Clash Display", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+
+  /* Layout */
+  --container: 1180px;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+
+  /* Navegación */
+  --nav-h: 4.5rem;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg-void);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-c);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Utilidades de layout ---------- */
+.section {
+  position: relative;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: clamp(4rem, 10vw, 8rem) var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0 0 2.5rem;
+}
+
+/* =========================================================================
+   NAVEGACIÓN  (estilo base; el indicador de sección activa llega en PASO 4)
+   ========================================================================= */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  background: color-mix(in srgb, var(--bg-void) 72%, transparent);
+  backdrop-filter: saturate(140%) blur(12px);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.nav {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav__list {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__list a {
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.nav__list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--grad-hero);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav__list a:hover {
+  color: var(--ink);
+}
+
+.nav__list a:hover::after {
+  transform: scaleX(1);
+}
+
+/* En móvil ocultamos la lista (en PASO 5 valoramos menú); el brand basta para volver arriba */
+@media (max-width: 760px) {
+  .nav__list {
+    display: none;
+  }
+}
+
+/* =========================================================================
+   BOTONES
+   ========================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.btn:hover {
+  border-color: color-mix(in srgb, var(--accent-b) 60%, var(--line));
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  position: relative;
+  color: #0a0b0f;
+  border-color: transparent;
+  background: var(--grad-hero);
+  background-size: 160% 160%;
+  background-position: 0% 50%;
+  transition: background-position 0.5s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn--primary:hover {
+  background-position: 100% 50%;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px -12px color-mix(in srgb, var(--accent-b) 70%, transparent);
+}
+
+/* =========================================================================
+   1. HERO  ✦ diseñado
+   ========================================================================= */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: calc(var(--nav-h) + 2.5rem) var(--gutter) 4.5rem;
+  overflow: hidden;
+}
+
+/* Mesh de gradiente: glows suaves, dominante oscuro */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero::before {
+  width: 48vw;
+  height: 48vw;
+  max-width: 640px;
+  max-height: 640px;
+  top: -10%;
+  right: -8%;
+  background: radial-gradient(circle at center, var(--accent-b), transparent 68%);
+}
+
+.hero::after {
+  width: 42vw;
+  height: 42vw;
+  max-width: 560px;
+  max-height: 560px;
+  bottom: -14%;
+  left: -10%;
+  background: radial-gradient(circle at center, var(--accent-a), transparent 66%);
+  opacity: 0.42;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.hero__eyebrow::before {
+  content: "";
+  width: 2.5rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad-hero);
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3rem, 11.5vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.hero__tagline {
+  max-width: 46ch;
+  margin: 1.75rem 0 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--ink) 86%, transparent);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2.25rem 0 0;
+}
+
+.hero__scroll-hint {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hero__scroll-hint:hover {
+  color: var(--ink);
+}
+
+/* =========================================================================
+   BASE OSCURA PROVISIONAL  (secciones aún sin diseñar — PASO 3 continúa)
+   Solo legibilidad sobre fondo oscuro; nada de art direction todavía.
+   ========================================================================= */
+.about__body p,
+.projects__intro {
+  max-width: 65ch;
+  color: color-mix(in srgb, var(--ink) 88%, transparent);
+}
+
+.about__tags,
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.about__tags li,
+.chips li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.stack__group,
+.formacion__block,
+.certs__group {
+  margin-bottom: 2rem;
+}
+
+.stack__category,
+.formacion__subtitle,
+.certs__category {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+
+.timeline,
+.education {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job {
+  margin-bottom: 2.5rem;
+}
+
+.job__company {
+  font-family: var(--font-display);
+  margin: 0;
+}
+
+.job__meta,
+.education__meta,
+.certs__meta {
+  color: var(--ink-muted);
+}
+
+.job__role {
+  margin-top: 1rem;
+}
+
+.projects__grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.75rem;
+  background: var(--bg-raised);
+}
+
+.project__name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.project__company {
+  font-weight: 400;
+  color: var(--ink-muted);
+}
+
+.project__badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  margin: 0;
+}
+
+.project__hook {
+  font-weight: 600;
+}
+
+.langs {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.contact {
+  text-align: left;
+}
+
+.contact__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 9vw, 6rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0 0 2rem;
+}
+
+.contact__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 3rem var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+/* =========================================================================
+   REDUCED MOTION
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

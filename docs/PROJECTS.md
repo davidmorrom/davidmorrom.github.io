@@ -1,8 +1,16 @@
 # PROJECTS.md — Proyectos destacados
 
-> 3 proyectos. Orden en el sitio: **ORS Registro de Horario → SOMA → Sanea**.
+> 4 proyectos. Orden en el sitio: **ORS Registro de Horario → SOMA → Sanea → App
+> Renovación de Dispositivos (Deloitte)**.
+> Dos productos personales (SOMA, Sanea) y dos proyectos profesionales: Registro de
+> Horario (@ ORS) y la app de Deloitte (también referenciada como bullet en
+> CONTENT.md → Deloitte).
 > Para cada uno: nombre, una línea de gancho, qué resuelve, stack (chips), estado,
-> y el "porqué". Mantener el tono equilibrado. Respetar las notas de privacidad.
+> y el "¿Por qué?". Mantener el tono equilibrado. Respetar las notas de privacidad.
+>
+> Sugerencia visual: etiqueta "Proyecto profesional" en los de entorno laboral (Registro
+> de Horario y app de Deloitte) frente a los productos personales, sin que parezca de
+> segunda.
 
 ---
 
@@ -109,9 +117,47 @@ terceros.
 
 ---
 
+## 4. App de Renovación de Dispositivos Corporativos (Deloitte)
+
+**Gancho:** Aplicación interna end-to-end, desarrollada en Power Apps, para gestionar
+la renovación del parque de iPhone corporativos por fases.
+
+**Qué resuelve:** Automatiza un proceso logístico que de otro modo sería manual y
+propenso a errores: la renovación de dispositivos móviles corporativos (campaña del
+iPhone 17), desplegada por fases según el terminal previo de cada empleado. La app
+identifica al usuario por su cuenta de Microsoft, cruza su identidad contra unos datos
+maestros en SharePoint para determinar qué terminal le corresponde, y aplica
+validación condicional: si no hay dispositivo asignado, el flujo no avanza. El empleado
+elige renovar o devolver el dispositivo y si necesita soporte de carga inalámbrica;
+todo queda registrado y se consolida para el proceso de aprovisionamiento de hardware.
+Finalmente, la app ofrece la reserva de cita —según la oficina del empleado— para
+recoger el nuevo dispositivo y entregar el antiguo.
+
+**Stack:** Microsoft Power Apps · Power Platform · SharePoint (listas como datos
+maestros y registro) · integración con identidad de Microsoft 365 · exportación a
+Excel para el flujo de aprovisionamiento.
+
+**Estado:** Desarrollado y entregado durante la etapa en Deloitte. Diseñado para
+despliegue por fases (primero un grupo de usuarios, luego el resto).
+
+**Porqué:** Necesidad real de la organización: orquestar una renovación masiva de
+dispositivos de forma controlada, con validación de elegibilidad y reserva de citas,
+sin gestión manual. Demuestra desarrollo integral de una herramienta interna con lógica
+de negocio real (autenticación, cruce de datos, validación condicional, flujo de
+decisiones y reserva).
+
+> CONFIDENCIALIDAD: se puede nombrar Deloitte y el modelo (iPhone 17). EVITAR en público
+> datos operativos internos: nombre del broker/proveedor de hardware concreto, número
+> real de empleados, o estructura interna de oficinas. Describir el flujo y la lógica,
+> no los datos sensibles de la empresa.
+
+---
+
 ## Hilo común (para la intro de la sección)
 
-Las tres comparten ADN: **TypeScript, arquitectura cuidada, privacidad por diseño,
-e IA/automatización con propósito.** Juntas muestran un patrón —no proyectos sueltos—:
-un desarrollador que construye productos completos, del prototipo personal al SaaS
-comercial con cumplimiento legal.
+Los cuatro proyectos comparten ADN: **arquitectura cuidada, privacidad por diseño, e
+IA/automatización con propósito.** Van del producto personal (SOMA, Sanea) al proyecto
+profesional: un SaaS comercial con cumplimiento legal y criptografía (Registro de
+Horario @ ORS) y herramientas internas en entorno corporativo (app de Deloitte). No son
+proyectos sueltos: muestran un patrón —un desarrollador que construye productos
+completos de principio a fin—.

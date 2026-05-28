@@ -46,10 +46,10 @@ Palabras clave de forma de trabajar (para destacar como etiquetas):
 
 - **Backend / Lenguajes:** C# / .NET (Framework y Core), VB.NET, Node.js, T-SQL,
   PowerShell / Bash, Java (formación)
-- **Plataforma / ERP:** Sage 200, Sage 50, SQL Server, Microsoft 365, Azure (nociones),
-  AWS (formación)
+- **Plataforma / ERP:** Sage 200, Sage 50, SQL Server, Microsoft 365
 - **Frontend / Web:** Next.js, React, HTML/CSS/JS
-- **Infra / Integraciones:** EDI / B2B, APIs REST / SOAP, Docker, Git / GitHub
+- **Infra / Integraciones:** EDI / B2B, APIs REST / SOAP, Docker, Git / GitHub,
+  Azure (nociones), AWS (formación)
 - **IA / Automatización:** desarrollo asistido por IA, MCP servers / Claude Code,
   Microsoft Power Platform (Power Automate, Power Apps), pilotos de Copilot
 
@@ -84,18 +84,15 @@ Dos roles simultáneos:
 - Gestión de entornos Microsoft 365: licencias, buzones, accesos; soporte en Teams.
 - Participación en pilotos de Copilot: coordinación de pruebas y recogida de feedback
   para la adopción de IA.
+- Desarrollo integral, en Power Apps, de una app interna para gestionar la renovación
+  por fases del parque de iPhone corporativos (campaña iPhone 17): autenticación por
+  identidad de Microsoft, cruce contra datos maestros en SharePoint, validación de
+  elegibilidad, captura de la decisión del empleado y reserva de cita por oficina.
 - Soporte técnico y resolución de incidencias (ServiceNow), coordinación con equipos
   globales en despliegues.
 
 > Fraseo seguro: describir como participación/coordinación en pilotos de IA, NO como
 > "coliderazgo" (el rol era practitioner). Vende igual y es defendible.
-
-### IES Isabel de Castilla · mar 2022 – jun 2022 · Ávila
-**Especialista informático**
-- Gestión de Active Directory (usuarios y equipos).
-- Mantenimiento y reparación de equipos (PCs, dispositivos IoT).
-- Redes: cableado, conectividad, impresoras y dispositivos compartidos.
-- Soporte técnico a profesorado y personal; documentación de procesos.
 
 ## Formación
 
@@ -107,16 +104,29 @@ Dos roles simultáneos:
 
 ## Certificaciones (reales, sin inflar)
 
-- Sage 200 — Plataforma Avanzada (Seguridad)
-- Sage 200 — Gestión Documental
-- AWS Educate — Getting Started with Networking
-- AWS Educate — Getting Started with Databases
-- Java — OpenWebinars
+Lista completa y verificable (de LinkedIn), agrupada por relevancia:
 
-> IMPORTANTE: el "Extracto" del LinkedIn menciona "AWS Cloud Practitioner" y "Power
-> Platform Developer" como destacadas, pero la lista real son AWS *Educate* (intro) y
-> no figura la Cloud Practitioner oficial. En el portfolio usar SOLO la lista real de
-> arriba para que todo sea verificable. Si el dueño obtiene las oficiales, añadir.
+**Sage 200 — Sage · ene. 2026**
+- 200ES – Sage 200 – Gestión
+- 200ES – Sage 200 – Análisis de Negocio
+- 200ES – Sage 200 – Producción Básica
+- 200ES – Sage 200 – Plataforma Avanzada (Seguridad)
+- 200ES – Sage 200 – Gestión Documental
+
+**Power Platform**
+- Administración y Gobernanza de Power Platform — CrossPoint 365 · mar. 2025
+- Microsoft Power Automate for Power Apps Developers — Udemy · may. 2024
+
+**Fundamentos**
+- Java — OpenWebinars · oct. 2023
+- MySQL — OpenWebinars · feb. 2024
+- Linux — OpenWebinars · feb. 2024
+- AWS Educate — Getting Started with: Compute, Storage, Networking, Databases — AWS · ene.–feb. 2024
+
+> NOTA: AWS Educate es de nivel introductorio (no es la AWS Cloud Practitioner oficial);
+> se etiqueta como "Educate". No existe una certificación "Power Platform Developer"
+> oficial de Microsoft en la lista: lo real son los cursos de CrossPoint 365 y Udemy de
+> arriba. Todo lo listado es verificable. Si el dueño obtiene las oficiales, añadir.
 
 ## Idiomas
 

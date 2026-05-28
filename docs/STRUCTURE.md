@@ -21,19 +21,24 @@ Single-page con scroll. Secciones en este orden, con anclas para la navegación:
   (cliché y poco creíble). Mostrar agrupación clara.
 
 ## 4. Experiencia (`#experiencia`)
-- Timeline vertical con: ORS Consulting (doble rol) → Deloitte → IES Isabel de
-  Castilla. Datos exactos en CONTENT.md.
+- Timeline vertical con: ORS Consulting (doble rol) → Deloitte. Datos exactos en
+  CONTENT.md.
 - Cada entrada: empresa, rol, fechas, 2-4 bullets de impacto.
 
 ## 5. Proyectos (`#proyectos`)
-- Las 3 fichas destacadas: **ORS Registro de Horario**, **SOMA**, **Sanea**.
-- Orden sugerido: Registro de Horario primero (producto comercial, más impresionante
-  y conectado a su trabajo), luego SOMA, luego Sanea.
+- Cuatro fichas: **ORS Registro de Horario**, **SOMA**, **Sanea**, y **App de
+  Renovación de Dispositivos (Deloitte)**.
+- Orden: Registro de Horario primero (producto comercial, más impresionante y conectado
+  a su trabajo), luego SOMA, luego Sanea, y por último la app de Deloitte.
+- Etiqueta "Proyecto profesional" en los proyectos de entorno laboral (Registro de
+  Horario @ ORS y app de Deloitte), para diferenciarlos de los productos personales
+  (SOMA, Sanea) sin que ninguno parezca de segunda.
 - Cards grandes con hover marcado. Cada una: nombre, una línea de qué resuelve,
   stack destacado (chips), estado, y el "porqué". Detalle en PROJECTS.md.
 - Privacidad: en SOMA, enfatizar arquitectura/decisiones técnicas, ser discreto con
   el detalle clínico personal. En Sanea, enfocar como reto de UX de producto (sin
-  connotación de situación personal). Ver PROJECTS.md para el fraseo.
+  connotación de situación personal). En la app de Deloitte, nombrar Deloitte/iPhone 17
+  pero NO datos operativos internos (broker, nº empleados, oficinas). Ver PROJECTS.md.
 
 ## 6. Formación y certificaciones (`#formacion`)
 - SMR → DAM → Máster Ciberseguridad UNIR (timeline o lista).

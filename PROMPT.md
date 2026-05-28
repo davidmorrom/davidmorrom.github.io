@@ -52,7 +52,7 @@ PASO 5 — Pulido. Responsive (prueba a 380px), accesibilidad (contraste, teclad
 rendimiento (lazy-load, peso de fuentes), favicon y metadatos (title, description,
 Open Graph para que se vea bien al compartir en LinkedIn).
 
-NO hagas commit ni push tú: cuando una fase esté lista y yo dé el OK, yo despliego con
+NO hagas push tú: cuando una fase esté lista y yo dé el OK, yo pusheo con
 git. Trabaja por fases, enséñame el resultado al final de cada una, y pregunta siempre
 que un dato no esté en los docs. Empieza por el PASO 1.
 ```
@@ -68,3 +68,6 @@ que un dato no esté en los docs. Empieza por el PASO 1.
 - Pendientes opcionales para más adelante: dominio propio, capturas reales de los
   proyectos, favicon/imagen OG definitiva, sección de blog si algún día apetece.
 ```
+
+
+Me faltan cosas, me falta chispa. Investiga bien profundamente que podríamos poner que sorprenda aun más y sea divertido.
