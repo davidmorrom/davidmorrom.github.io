@@ -1,0 +1,7 @@
+# Notas y documentos de trabajo locales — no forman parte del sitio publicado.
+# Ojo: este repo es público y GitHub Pages sirve la raíz tal cual; cualquier
+# archivo commiteado queda accesible en davidmorrom.github.io/<archivo>.
+*.md
+!README.md
+.vscode/
+.claude/

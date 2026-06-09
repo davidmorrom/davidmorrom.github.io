@@ -1,0 +1,738 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Moreno Romero — Developer &amp; Tech Consultant</title>
+  <meta name="description" content="Portfolio de David Moreno Romero, developer y consultor tecnológico en Madrid. Desarrollo, consultoría estratégica y adopción de IA.">
+  <meta name="theme-color" content="#0a1f3f">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Open Graph básico -->
+  <meta property="og:title" content="David Moreno Romero — Developer &amp; Tech Consultant">
+  <meta property="og:description" content="Desarrollo, consultoría estratégica y adopción de IA. Portfolio profesional.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidmorrom.github.io/">
+
+  <!-- Tipografías: Fraunces (display), Hanken Grotesk (cuerpo), JetBrains Mono (detalles) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" id="cabecera">
+    <nav class="site-nav container" aria-label="Principal">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark" aria-hidden="true">DM</span>
+        <span class="brand-name">David Moreno</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="sr-only">Abrir menú</span>
+      </button>
+
+      <ul class="nav-links" id="menu-principal">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a class="nav-cta" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============================================================
+         1. HERO
+         ============================================================ -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="container hero-grid">
+
+        <div class="hero-copy">
+          <p class="hero-eyebrow"><span aria-hidden="true">◆</span> ORS Consulting · Madrid</p>
+          <h1 class="hero-title" id="hero-titulo">David Moreno Romero</h1>
+          <p class="hero-role">Developer &amp; Tech Consultant</p>
+          <p class="hero-lead">
+            Construyo software y ayudo a las organizaciones a adoptar la IA con criterio.
+            Autodidacta de origen, con formación oficial detrás: desarrollo, consultoría
+            estratégica y ciberseguridad en un mismo perfil.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+            <a class="btn btn-ghost" href="#contacto">Hablemos</a>
+          </div>
+        </div>
+
+        <div class="hero-figure" aria-hidden="false">
+          <div class="portrait-halo">
+            <div class="portrait-frame">
+              <!-- FOTO: coloca tu retrato profesional en assets/img/retrato.jpg
+                   (ideal: cuadrada, mínimo 640×640, recorte centrado en la cara).
+                   Mientras no exista, se muestran las iniciales como reserva. -->
+              <span class="portrait-fallback" aria-hidden="true">DM</span>
+              <img class="portrait-img" src="assets/img/retrato.jpg" alt="Retrato de David Moreno Romero" width="640" height="640">
+            </div>
+
+            <!-- Badges flotantes alrededor del retrato -->
+            <span class="hero-badge badge-1">Desarrollo</span>
+            <span class="hero-badge badge-2">Consultoría</span>
+            <span class="hero-badge badge-3">Adopción de IA</span>
+            <span class="hero-badge badge-4">Ciberseguridad</span>
+
+            <!-- Portátil ilustrado: guiño a la historia de origen autodidacta -->
+            <svg class="hero-laptop" viewBox="0 0 120 84" role="img" aria-label="Ilustración de un portátil abierto">
+              <defs>
+                <linearGradient id="laptop-screen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#16386b"/>
+                  <stop offset="1" stop-color="#0f2a52"/>
+                </linearGradient>
+              </defs>
+              <!-- pantalla -->
+              <rect x="22" y="6" width="76" height="52" rx="5" fill="#0a1f3f" stroke="#2f5288" stroke-width="2"/>
+              <rect x="27" y="11" width="66" height="42" rx="3" fill="url(#laptop-screen)"/>
+              <!-- formas abstractas de UI en pantalla -->
+              <circle cx="36" cy="20" r="3.5" fill="#7bbcf5"/>
+              <rect x="43" y="17.5" width="28" height="5" rx="2.5" fill="#3b82d6"/>
+              <rect x="33" y="29" width="42" height="4" rx="2" fill="#2f5288"/>
+              <rect x="33" y="37" width="30" height="4" rx="2" fill="#2f5288"/>
+              <path d="M80 34 l6 6 -6 6" fill="none" stroke="#7bbcf5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- base / teclado -->
+              <path d="M14 60 h92 l8 14 a3 3 0 0 1 -3 4 H9 a3 3 0 0 1 -3 -4 z" fill="#16386b" stroke="#2f5288" stroke-width="2"/>
+              <rect x="48" y="66" width="24" height="5" rx="2.5" fill="#2f5288"/>
+              <!-- chispa: la curiosidad que lo arrancó todo -->
+              <path d="M104 14 l2.2 5 5 2.2 -5 2.2 -2.2 5 -2.2 -5 -5 -2.2 5 -2.2 z" fill="#7bbcf5"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Indicador de scroll -->
+      <a class="scroll-cue" href="#sobre-mi">
+        <span class="scroll-cue-text" aria-hidden="true">scroll</span>
+        <svg class="scroll-cue-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M6 9 l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="sr-only">Ir a la sección Sobre mí</span>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         2. SOBRE MÍ
+         ============================================================ -->
+    <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-titulo">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-eyebrow">01 · Sobre mí</p>
+          <h2 class="section-title" id="sobre-mi-titulo">Autodidacta primero, formación oficial después</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              Empecé en la informática por mi cuenta, mucho antes de pisar un aula:
+              a base de curiosidad, práctica y muchas horas de trastear. Esa base
+              autodidacta la formalicé después con la FP de Sistemas Microinformáticos
+              y Redes, el Grado Superior de Desarrollo de Aplicaciones Multiplataforma
+              y un Programa Profesional en Ciberseguridad (UNIR).
+            </p>
+            <p>
+              Hoy soy developer y consultor tecnológico en
+              <strong>ORS Consulting</strong> (Madrid), un rol multifunción con
+              doble vertiente: consultoría ERP Sage 200 sobre SQL Server y
+              desarrollo de software y web corporativa con Next.js, además del
+              posicionamiento (LinkedIn/SEO) y el liderazgo de la adopción de IA
+              dentro de la organización. Antes pasé por <strong>Deloitte</strong>
+              como DTech Practitioner.
+            </p>
+            <ul class="about-points">
+              <li>
+                <span class="point-icon" aria-hidden="true">⌁</span>
+                <span><strong>Perfil en T:</strong> desarrollo como base, consultoría y producto como alcance.</span>
+              </li>
+              <li>
+                <span class="point-icon" aria-hidden="true">⌁</span>
+                <span><strong>IA con criterio:</strong> adopción práctica, no por moda.</span>
+              </li>
+              <li>
+                <span class="point-icon" aria-hidden="true">⌁</span>
+                <span><strong>Seguridad de serie:</strong> la ciberseguridad como mentalidad, no como añadido.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- SVG decorativo: chip -->
+          <div class="about-figure">
+            <svg class="about-chip" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="chip-body" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#16386b"/>
+                  <stop offset="1" stop-color="#0f2a52"/>
+                </linearGradient>
+              </defs>
+              <!-- pistas de circuito -->
+              <g stroke="#2f5288" stroke-width="2" fill="none" stroke-linecap="round">
+                <path d="M30 30 h28 v22"/>
+                <path d="M170 32 h-26 v20"/>
+                <path d="M28 168 h32 v-20"/>
+                <path d="M172 166 h-30 v-18"/>
+                <path d="M14 100 h34"/>
+                <path d="M152 100 h34"/>
+              </g>
+              <g fill="#7bbcf5">
+                <circle cx="30" cy="30" r="4"/>
+                <circle cx="170" cy="32" r="4"/>
+                <circle cx="28" cy="168" r="4"/>
+                <circle cx="172" cy="166" r="4"/>
+                <circle cx="14" cy="100" r="4"/>
+                <circle cx="186" cy="100" r="4"/>
+              </g>
+              <!-- patillas -->
+              <g fill="#41679f">
+                <rect x="78" y="44" width="8" height="14" rx="2"/>
+                <rect x="96" y="44" width="8" height="14" rx="2"/>
+                <rect x="114" y="44" width="8" height="14" rx="2"/>
+                <rect x="78" y="142" width="8" height="14" rx="2"/>
+                <rect x="96" y="142" width="8" height="14" rx="2"/>
+                <rect x="114" y="142" width="8" height="14" rx="2"/>
+                <rect x="44" y="78" width="14" height="8" rx="2"/>
+                <rect x="44" y="96" width="14" height="8" rx="2"/>
+                <rect x="44" y="114" width="14" height="8" rx="2"/>
+                <rect x="142" y="78" width="14" height="8" rx="2"/>
+                <rect x="142" y="96" width="14" height="8" rx="2"/>
+                <rect x="142" y="114" width="14" height="8" rx="2"/>
+              </g>
+              <!-- cuerpo del chip -->
+              <rect x="58" y="58" width="84" height="84" rx="12" fill="url(#chip-body)" stroke="#41679f" stroke-width="2"/>
+              <rect x="72" y="72" width="56" height="56" rx="8" fill="none" stroke="#2f5288" stroke-width="2"/>
+              <text x="100" y="106" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#7bbcf5">DM</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Cifras (datos derivados del propio contenido del sitio) -->
+        <ul class="about-stats">
+          <li class="stat">
+            <span class="stat-number" data-count="3">3</span>
+            <span class="stat-label">titulaciones oficiales</span>
+          </li>
+          <li class="stat">
+            <span class="stat-number" data-count="4">4</span>
+            <span class="stat-label">proyectos en el portfolio</span>
+          </li>
+          <li class="stat">
+            <span class="stat-number" data-count="20">20</span>
+            <span class="stat-label">tecnologías en el stack</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. TECH CONSTELLATION
+         ============================================================ -->
+    <section class="section" id="stack" aria-labelledby="stack-titulo">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-eyebrow">02 · Stack</p>
+          <h2 class="section-title" id="stack-titulo">Constelación tecnológica</h2>
+          <p class="section-intro">
+            Cada estrella es una tecnología de mi stack. Pulsa una para ver qué es
+            y dónde la he aprendido o aplicado.
+            <span class="constellation-only">Con teclado: Tab para moverte entre estrellas, Enter para viajar.</span>
+          </p>
+        </header>
+
+        <!-- Versión interactiva 3D (escritorio + sin reduced-motion).
+             js/constellation.js (Three.js) monta aquí el canvas WebGL y los
+             botones-nodo accesibles, a partir de la lista .tech-list. -->
+        <div class="constellation" data-constellation>
+          <div class="constellation-sky"></div>
+
+          <div class="tech-panel" role="dialog" aria-labelledby="tech-panel-titulo" hidden>
+            <div class="tech-panel-card">
+              <p class="tech-panel-kicker" aria-hidden="true">✦ · · · ✦</p>
+              <h3 class="tech-panel-title" id="tech-panel-titulo"></h3>
+              <div class="tech-panel-body"></div>
+              <button class="tech-panel-close btn btn-primary" type="button">Volver a la constelación</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lista alternativa accesible: misma información, sin animación.
+             Visible en móvil y con prefers-reduced-motion; además es la fuente
+             de datos de la que el JS construye los nodos. -->
+        <ul class="tech-list">
+          <li class="tech-item" id="tech-javascript" data-x="16" data-y="22" data-connect="tech-typescript">
+            <h3 class="tech-name">JavaScript</h3>
+            <p class="tech-what">El lenguaje de la web: interactividad en el navegador y, con Node.js, también en el servidor.</p>
+            <p class="tech-where"><strong>Dónde:</strong> base de mi desarrollo web. Aprendido de forma autodidacta y consolidado en el Grado Superior DAM; presente en la mayoría de mis proyectos, incluido este portfolio.</p>
+          </li>
+          <li class="tech-item" id="tech-typescript" data-x="28" data-y="8">
+            <h3 class="tech-name">TypeScript</h3>
+            <p class="tech-what">JavaScript con tipos estáticos: bases de código más seguras y mantenibles a medida que crecen.</p>
+            <p class="tech-where"><strong>Dónde:</strong> parte de mi stack habitual de desarrollo sobre el ecosistema JavaScript.</p>
+          </li>
+          <li class="tech-item" id="tech-react" data-x="40" data-y="24" data-connect="tech-typescript tech-javascript">
+            <h3 class="tech-name">React / React Native</h3>
+            <p class="tech-what">Biblioteca de interfaces declarativas; React Native la lleva a apps móviles nativas multiplataforma.</p>
+            <p class="tech-where"><strong>Dónde:</strong> React Native es el cliente multiplataforma de SOMA, mi app de optimización de salud.</p>
+          </li>
+          <li class="tech-item" id="tech-nextjs" data-x="52" data-y="8" data-connect="tech-react">
+            <h3 class="tech-name">Next.js</h3>
+            <p class="tech-what">Framework React con SSR/SSG.</p>
+            <p class="tech-where"><strong>Dónde:</strong> ORS Consulting: web corporativa (orsconsulting.com), rendimiento y SEO técnico.</p>
+          </li>
+          <li class="tech-item" id="tech-node" data-x="30" data-y="38" data-connect="tech-javascript tech-rest">
+            <h3 class="tech-name">Node.js</h3>
+            <p class="tech-what">Runtime de JavaScript en el servidor: APIs, tooling y automatización con un único lenguaje.</p>
+            <p class="tech-where"><strong>Dónde:</strong> parte de mi stack habitual para backend y herramientas del ecosistema JavaScript.</p>
+          </li>
+          <li class="tech-item" id="tech-html-css" data-x="8" data-y="38" data-connect="tech-javascript">
+            <h3 class="tech-name">HTML / CSS</h3>
+            <p class="tech-what">Estructura y estilo de la web.</p>
+            <p class="tech-where"><strong>Dónde:</strong> este portfolio (vanilla, sin build); fundamentos del Grado Superior DAM.</p>
+          </li>
+          <li class="tech-item" id="tech-rest" data-x="44" data-y="46" data-connect="tech-nextjs tech-supabase">
+            <h3 class="tech-name">REST APIs / integraciones</h3>
+            <p class="tech-what">Comunicación entre servicios.</p>
+            <p class="tech-where"><strong>Dónde:</strong> SOMA e integraciones de IA; captación de leads en la web de ORS; integración EDI.</p>
+          </li>
+          <li class="tech-item" id="tech-supabase" data-x="58" data-y="30" data-connect="tech-react tech-postgresql">
+            <h3 class="tech-name">Supabase</h3>
+            <p class="tech-what">Backend como servicio sobre PostgreSQL: base de datos, autenticación y APIs en tiempo real.</p>
+            <p class="tech-where"><strong>Dónde:</strong> backend de SOMA, con arquitectura offline-first en un monorepo gestionado con Turborepo.</p>
+          </li>
+          <li class="tech-item" id="tech-postgresql" data-x="74" data-y="16" data-connect="tech-sqlserver">
+            <h3 class="tech-name">PostgreSQL / SQL</h3>
+            <p class="tech-what">Base de datos relacional y su lenguaje de consulta.</p>
+            <p class="tech-where"><strong>Dónde:</strong> SOMA (Supabase corre sobre Postgres); modelado de datos relacional.</p>
+          </li>
+          <li class="tech-item" id="tech-sqlserver" data-x="86" data-y="30" data-connect="tech-sage200">
+            <h3 class="tech-name">SQL Server</h3>
+            <p class="tech-what">Motor de base de datos relacional de Microsoft.</p>
+            <p class="tech-where"><strong>Dónde:</strong> ORS Consulting: ingeniería de datos sobre la BBDD de Sage (esquemas, consultas).</p>
+          </li>
+          <li class="tech-item" id="tech-sage200" data-x="92" data-y="46">
+            <h3 class="tech-name">Sage 200 (ERP)</h3>
+            <p class="tech-what">ERP de gestión empresarial.</p>
+            <p class="tech-where"><strong>Dónde:</strong> ORS Consulting: administración, UDFs, lógica a medida, soluciones conectadas.</p>
+          </li>
+          <li class="tech-item" id="tech-azure" data-x="68" data-y="58" data-connect="tech-power-automate">
+            <h3 class="tech-name">Azure</h3>
+            <p class="tech-what">Nube de Microsoft.</p>
+            <p class="tech-where"><strong>Dónde:</strong> ecosistema Microsoft (contexto Power Platform / Deloitte).</p>
+          </li>
+          <li class="tech-item" id="tech-power-platform" data-x="88" data-y="68" data-connect="tech-power-automate tech-azure">
+            <h3 class="tech-name">Power Platform</h3>
+            <p class="tech-what">Plataforma low-code de Microsoft (Power Apps, Power Automate) para soluciones corporativas rápidas.</p>
+            <p class="tech-where"><strong>Dónde:</strong> en Deloitte construí una app interna en Power Apps para la renovación corporativa por fases de dispositivos iPhone 17.</p>
+          </li>
+          <li class="tech-item" id="tech-power-automate" data-x="70" data-y="80" data-connect="tech-python">
+            <h3 class="tech-name">Power Automate</h3>
+            <p class="tech-what">Automatización de flujos en Power Platform.</p>
+            <p class="tech-where"><strong>Dónde:</strong> Deloitte: automatización de procesos junto a la app de Power Apps.</p>
+          </li>
+          <li class="tech-item" id="tech-python" data-x="54" data-y="64" data-connect="tech-bash tech-git">
+            <h3 class="tech-name">Python</h3>
+            <p class="tech-what">Lenguaje versátil y legible, estándar de facto en scripting, automatización y datos.</p>
+            <p class="tech-where"><strong>Dónde:</strong> mi caja de herramientas para scripting y automatización.</p>
+          </li>
+          <li class="tech-item" id="tech-git" data-x="40" data-y="60" data-connect="tech-node">
+            <h3 class="tech-name">Git</h3>
+            <p class="tech-what">Control de versiones distribuido: la columna vertebral de cualquier flujo de desarrollo serio.</p>
+            <p class="tech-where"><strong>Dónde:</strong> en todos mis proyectos; parte de mi flujo de trabajo diario.</p>
+          </li>
+          <li class="tech-item" id="tech-bash" data-x="22" data-y="64" data-connect="tech-linux">
+            <h3 class="tech-name">Bash / scripting</h3>
+            <p class="tech-what">Automatización en línea de comandos.</p>
+            <p class="tech-where"><strong>Dónde:</strong> entorno Linux diario; tareas de sistema y despliegue.</p>
+          </li>
+          <li class="tech-item" id="tech-linux" data-x="14" data-y="54" data-connect="tech-ciberseguridad">
+            <h3 class="tech-name">Linux</h3>
+            <p class="tech-what">Sistema operativo libre que sostiene la mayor parte de los servidores del mundo.</p>
+            <p class="tech-where"><strong>Dónde:</strong> desde la FP de Sistemas Microinformáticos y Redes; entorno habitual de trabajo y administración de sistemas.</p>
+          </li>
+          <li class="tech-item" id="tech-docker" data-x="34" data-y="82" data-connect="tech-linux tech-bash">
+            <h3 class="tech-name">Docker / contenedores</h3>
+            <p class="tech-what">Empaquetado y aislamiento de entornos.</p>
+            <p class="tech-where"><strong>Dónde:</strong> entornos de desarrollo reproducibles.</p>
+          </li>
+          <li class="tech-item" id="tech-ciberseguridad" data-x="4" data-y="88" data-connect="tech-git">
+            <h3 class="tech-name">Ciberseguridad</h3>
+            <p class="tech-what">Proteger sistemas y datos: amenazas, defensa y diseño seguro desde el principio.</p>
+            <p class="tech-where"><strong>Dónde:</strong> Programa Profesional en Ciberseguridad (UNIR). Aplicada como mentalidad de diseño: por ejemplo, la integridad criptográfica de ORS Registro de Horario.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. PROYECTOS
+         ============================================================ -->
+    <section class="section" id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="container">
+        <header class="section-head section-head-split">
+          <div>
+            <p class="section-eyebrow">03 · Proyectos</p>
+            <h2 class="section-title" id="proyectos-titulo">Cosas que he construido</h2>
+            <p class="section-intro">
+              Productos reales, con decisiones técnicas y de producto detrás.
+            </p>
+          </div>
+
+          <!-- SVG decorativo: estructura de nodos -->
+          <svg class="section-deco deco-nodes" viewBox="0 0 160 110" aria-hidden="true" focusable="false">
+            <g stroke="#2f5288" stroke-width="1.5" fill="none">
+              <path d="M28 78 L62 30 L104 52 L136 18"/>
+              <path d="M62 30 L98 14"/>
+              <path d="M104 52 L122 88"/>
+              <path d="M28 78 L70 92 L122 88"/>
+            </g>
+            <g fill="#0f2a52" stroke="#7bbcf5" stroke-width="2">
+              <circle cx="28" cy="78" r="7"/>
+              <circle cx="62" cy="30" r="9"/>
+              <circle cx="104" cy="52" r="7"/>
+              <circle cx="136" cy="18" r="5"/>
+              <circle cx="98" cy="14" r="4"/>
+              <circle cx="70" cy="92" r="5"/>
+              <circle cx="122" cy="88" r="6"/>
+            </g>
+            <circle cx="62" cy="30" r="3.5" fill="#7bbcf5"/>
+          </svg>
+        </header>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="project-tag">ORS Consulting · SaaS</span>
+              <span class="project-status"><span aria-hidden="true">◐</span> Pre-producción</span>
+            </div>
+            <h3 class="project-title">ORS Registro de Horario</h3>
+            <p class="project-desc">
+              SaaS de registro horario orientado al cumplimiento de la ley laboral
+              española sobre registro de jornada. Su diferencial técnico: cada
+              registro queda encadenado con <strong>SHA-256</strong> y sellado en el
+              tiempo mediante <strong>TSA (RFC&nbsp;3161)</strong>, de modo que la
+              integridad de la jornada es verificable y los registros, no repudiables.
+            </p>
+            <ul class="project-stack" aria-label="Tecnologías y conceptos clave">
+              <li>Cadena SHA-256</li>
+              <li>Sellado TSA · RFC 3161</li>
+              <li>Cumplimiento normativo</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="project-tag">Proyecto personal</span>
+            </div>
+            <h3 class="project-title">SOMA</h3>
+            <p class="project-desc">
+              App de optimización de salud construida como monorepo multiplataforma:
+              cliente en <strong>React Native</strong>, backend en
+              <strong>Supabase</strong> y <strong>Turborepo</strong> orquestando el
+              conjunto. Arquitectura <strong>offline-first</strong> —la app funciona
+              sin conexión y sincroniza después— con integración de IA.
+            </p>
+            <ul class="project-stack" aria-label="Tecnologías y conceptos clave">
+              <li>React Native</li>
+              <li>Supabase</li>
+              <li>Turborepo</li>
+              <li>Offline-first</li>
+              <li>IA</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="project-tag">Proyecto personal</span>
+            </div>
+            <h3 class="project-title">Sanea</h3>
+            <p class="project-desc">
+              App de finanzas personales basada en <strong>sobres digitales</strong>.
+              El reto de producto va contra la corriente: en lugar de eliminar pasos,
+              introduce <strong>fricción intencional</strong> en el flujo de gasto
+              para que cada decisión sea consciente. Diseñar una fricción que ayude
+              sin frustrar es el corazón del proyecto.
+            </p>
+            <ul class="project-stack" aria-label="Tecnologías y conceptos clave">
+              <li>Diseño de producto</li>
+              <li>UX</li>
+              <li>Sobres digitales</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-meta">
+              <span class="project-tag">Deloitte · interna</span>
+            </div>
+            <h3 class="project-title">App de renovación de dispositivos</h3>
+            <p class="project-desc">
+              Aplicación interna construida en <strong>Power Apps</strong> para dar
+              soporte a la renovación corporativa por fases de dispositivos
+              <strong>iPhone&nbsp;17</strong> en Deloitte: una solución low-code
+              al servicio de un despliegue ordenado a gran escala.
+            </p>
+            <ul class="project-stack" aria-label="Tecnologías y conceptos clave">
+              <li>Power Apps</li>
+              <li>Power Platform</li>
+              <li>Low-code</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. EXPERIENCIA
+         ============================================================ -->
+    <section class="section" id="experiencia" aria-labelledby="experiencia-titulo">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-eyebrow">04 · Experiencia</p>
+          <h2 class="section-title" id="experiencia-titulo">Expediente profesional</h2>
+        </header>
+
+        <div class="dossier">
+          <!-- Índice lateral sticky -->
+          <nav class="dossier-index" aria-label="Índice de experiencia">
+            <ul>
+              <li><a href="#exp-ors" class="dossier-link" aria-current="true"><span class="dossier-ref" aria-hidden="true">01</span> ORS Consulting</a></li>
+              <li><a href="#exp-deloitte" class="dossier-link"><span class="dossier-ref" aria-hidden="true">02</span> Deloitte</a></li>
+              <li><a href="#exp-ies" class="dossier-link"><span class="dossier-ref" aria-hidden="true">03</span> IES Isabel de Castilla</a></li>
+            </ul>
+          </nav>
+
+          <!-- Entradas del expediente -->
+          <div class="dossier-entries">
+
+            <article class="dossier-entry" id="exp-ors">
+              <header class="entry-head">
+                <p class="entry-ref" aria-hidden="true">EXP–01</p>
+                <h3 class="entry-title">Developer &amp; Tech Consultant</h3>
+                <p class="entry-org">ORS Consulting · Madrid</p>
+                <p class="entry-period">
+                  <span class="entry-now" aria-hidden="true">●</span> Enero 2026 – Actualidad
+                </p>
+              </header>
+              <p class="entry-summary">
+                Rol multifunción con doble vertiente: consultoría ERP y desarrollo de software.
+              </p>
+              <ul class="entry-points">
+                <li><strong>Consultoría ERP Sage 200:</strong> administración y configuración del entorno; ingeniería de datos sobre SQL Server (esquemas, relaciones, optimización de consultas); campos personalizados (UDFs) y lógica de negocio a medida; soluciones conectadas al ecosistema Sage.</li>
+                <li><strong>Desarrollo de software y web corporativa:</strong> desarrollo end-to-end de orsconsulting.com con Next.js (SSR + SSG) para rendimiento y SEO técnico; captación de leads mediante integración de APIs en formularios dinámicos; despliegue, servidores y dominios.</li>
+                <li>Consultoría y trato directo con cliente: toma de requerimientos, incidencias y soporte.</li>
+                <li>Posicionamiento (LinkedIn / SEO) y liderazgo de la adopción de IA en la organización.</li>
+              </ul>
+            </article>
+
+            <article class="dossier-entry" id="exp-deloitte">
+              <header class="entry-head">
+                <p class="entry-ref" aria-hidden="true">EXP–02</p>
+                <h3 class="entry-title">Técnico DTech Practitioner Digitalization</h3>
+                <p class="entry-org">Deloitte</p>
+                <p class="entry-period">Abril 2024 – Enero 2026</p>
+              </header>
+              <p class="entry-summary">
+                Rol técnico en el área DTech (becario abril – junio 2024; técnico julio 2024 – enero 2026).
+              </p>
+              <ul class="entry-points">
+                <li><strong>Power Platform:</strong> flujos automatizados con Power Automate y apps con Power Apps para procesos internos, incluida la app de renovación corporativa por fases de dispositivos iPhone&nbsp;17.</li>
+                <li><strong>Microsoft 365:</strong> administración de licencias, buzones (Exchange) y accesos; soporte en Teams.</li>
+                <li><strong>Pilotos de Copilot:</strong> organización y coordinación de las pruebas iniciales; recopilación de feedback para la adopción.</li>
+                <li><strong>Soporte técnico:</strong> incidencias en ServiceNow y dispositivos corporativos; coordinación con equipos globales.</li>
+              </ul>
+            </article>
+
+            <article class="dossier-entry" id="exp-ies">
+              <header class="entry-head">
+                <p class="entry-ref" aria-hidden="true">EXP–03</p>
+                <h3 class="entry-title">Especialista informático</h3>
+                <p class="entry-org">IES Isabel de Castilla · Ávila</p>
+                <p class="entry-period">Marzo 2022 – Junio 2022</p>
+              </header>
+              <p class="entry-summary">
+                Soporte y administración de sistemas del centro: Active Directory,
+                mantenimiento de equipos, redes, impresoras y soporte a usuarios.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. FORMACIÓN
+         ============================================================ -->
+    <section class="section" id="formacion" aria-labelledby="formacion-titulo">
+      <div class="container">
+        <header class="section-head section-head-split">
+          <div>
+            <p class="section-eyebrow">05 · Formación</p>
+            <h2 class="section-title" id="formacion-titulo">Formación oficial</h2>
+            <p class="section-intro">
+              La estructura que vino después de la práctica.
+            </p>
+          </div>
+
+          <!-- SVG decorativo: engranaje (gira; se detiene con reduced-motion) -->
+          <svg class="section-deco deco-gear" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <g class="gear-spin">
+              <path fill="#16386b" stroke="#41679f" stroke-width="2.5" d="M60 18
+                l5.2 0 2.6 9.3 a34 34 0 0 1 8.6 3.6 l8.4-4.7 3.7 3.7 -4.7 8.4
+                a34 34 0 0 1 3.6 8.6 l9.3 2.6 0 5.2 0 5.2 -9.3 2.6 a34 34 0 0 1 -3.6 8.6
+                l4.7 8.4 -3.7 3.7 -8.4 -4.7 a34 34 0 0 1 -8.6 3.6 l-2.6 9.3 -5.2 0 -5.2 0
+                -2.6 -9.3 a34 34 0 0 1 -8.6 -3.6 l-8.4 4.7 -3.7 -3.7 4.7 -8.4
+                a34 34 0 0 1 -3.6 -8.6 l-9.3 -2.6 0 -5.2 0 -5.2 9.3 -2.6 a34 34 0 0 1 3.6 -8.6
+                l-4.7 -8.4 3.7 -3.7 8.4 4.7 a34 34 0 0 1 8.6 -3.6 l2.6 -9.3 z"/>
+              <circle cx="60" cy="60" r="17" fill="#0f2a52" stroke="#7bbcf5" stroke-width="2.5"/>
+              <circle cx="60" cy="60" r="6" fill="#7bbcf5"/>
+            </g>
+          </svg>
+        </header>
+
+        <div class="education-grid">
+
+          <article class="education-card">
+            <div class="logo-box">
+              <span class="logo-fallback" aria-hidden="true">UNIR</span>
+              <img class="logo-img" src="assets/img/logos/unir.png" alt="" width="200" height="80">
+            </div>
+            <div class="education-body">
+              <p class="education-level">Programa profesional</p>
+              <h3 class="education-title">Programa Profesional en Ciberseguridad, Seguridad informática y de sistemas</h3>
+              <p class="education-org">UNIR — Universidad Internacional de La Rioja</p>
+              <p class="education-period">Octubre 2024 – Julio 2025</p>
+            </div>
+          </article>
+
+          <article class="education-card">
+            <div class="logo-box">
+              <span class="logo-fallback" aria-hidden="true">UE</span>
+              <img class="logo-img" src="assets/img/logos/universidad-europea.jpg" alt="" width="200" height="80">
+            </div>
+            <div class="education-body">
+              <p class="education-level">FP de Grado Superior</p>
+              <h3 class="education-title">Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</h3>
+              <p class="education-org">Universidad Europea</p>
+              <p class="education-period">Septiembre 2022 – Junio 2024</p>
+            </div>
+          </article>
+
+          <article class="education-card">
+            <div class="logo-box">
+              <span class="logo-fallback" aria-hidden="true">IES AM</span>
+              <img class="logo-img" src="assets/img/logos/ies-alonso-madrigal.png" alt="" width="200" height="80">
+            </div>
+            <div class="education-body">
+              <p class="education-level">FP de Grado Medio</p>
+              <h3 class="education-title">Técnico en Sistemas Microinformáticos y Redes</h3>
+              <p class="education-org">IES Alonso de Madrigal</p>
+              <p class="education-period">2020 – 2022</p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Certificaciones e idiomas (datos reales del CV; AWS Educate es
+             formación, NO la certificación AWS Cloud Practitioner) -->
+        <div class="education-extra">
+          <article class="extra-card">
+            <h3 class="extra-title">Certificaciones y formación adicional</h3>
+            <ul class="extra-list">
+              <li><strong>AWS Educate</strong> (formación): Getting Started with Networking · Getting Started with Databases.</li>
+              <li><strong>Sage 200 — 200ES:</strong> Plataforma Avanzada (Seguridad) · Gestión Documental.</li>
+              <li><strong>Java:</strong> OpenWebinars Certificate.</li>
+            </ul>
+          </article>
+
+          <article class="extra-card">
+            <h3 class="extra-title">Idiomas</h3>
+            <ul class="extra-list">
+              <li><strong>Español:</strong> nativo.</li>
+              <li><strong>Inglés:</strong> profesional.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       7. CONTACTO / FOOTER
+       ============================================================ -->
+  <footer class="site-footer" id="contacto">
+    <div class="container">
+      <div class="contact-card">
+        <p class="section-eyebrow">06 · Contacto</p>
+        <h2 class="contact-title">¿Hablamos?</h2>
+        <p class="contact-lead">
+          Si tienes un proyecto, una duda técnica o simplemente quieres
+          intercambiar ideas, escríbeme.
+        </p>
+
+        <ul class="contact-links">
+          <li>
+            <a class="contact-link" href="https://github.com/davidmorrom" rel="me noopener" target="_blank">
+              <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
+              </svg>
+              <span>github.com/davidmorrom</span>
+              <span class="sr-only">(se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+          <li>
+            <a class="contact-link" href="https://www.linkedin.com/in/davidmorrom" rel="me noopener" target="_blank">
+              <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M4.98 3.5A2.49 2.49 0 1 1 5 8.48a2.49 2.49 0 0 1-.02-4.98zM3 9.75h4v10.75H3zM9.5 9.75h3.83v1.47h.05c.53-.95 1.84-1.95 3.78-1.95 4.04 0 4.79 2.6 4.79 5.98v5.25h-4v-4.65c0-1.11-.02-2.54-1.58-2.54-1.59 0-1.83 1.21-1.83 2.46v4.73h-4z"/>
+              </svg>
+              <span>linkedin.com/in/davidmorrom</span>
+              <span class="sr-only">(se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-meta">
+        <p>© <span data-year>2026</span> David Moreno Romero · Madrid</p>
+        <p class="footer-note">Hecho a mano con HTML, CSS y JavaScript. Sin frameworks.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Librerías desde CDN (sin build step; versiones fijadas) -->
+  <!-- Three.js para la constelación 3D -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/constellation.js"></script>
+
+  <!-- GSAP + ScrollTrigger + Lenis para la coreografía de scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

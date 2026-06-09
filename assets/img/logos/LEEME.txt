@@ -1,0 +1,9 @@
+Logos de las instituciones, ya colocados (los nombres deben coincidir con index.html):
+
+- unir.png                  → UNIR
+- universidad-europea.jpg   → Universidad Europea
+- ies-alonso-madrigal.png   → IES Alonso de Madrigal
+
+En la carpeta padre (assets/img/): retrato.jpg (retrato del hero).
+Si se sustituye algún archivo, mantener el mismo nombre y extensión
+o actualizar el src correspondiente en index.html.
