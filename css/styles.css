@@ -375,18 +375,39 @@ button {
   font-weight: 600;
 }
 
+/* Retrato en miniatura; si la imagen falta, quedan las iniciales sobre el
+   degradado (mismo patrón .is-missing/.is-hidden que retrato y logos) */
 .brand-mark {
+  position: relative;
   display: grid;
   place-items: center;
   width: 2.4rem;
   height: 2.4rem;
-  border-radius: var(--radius-sm);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
   background: linear-gradient(135deg, var(--btn-primary-bg), var(--btn-primary-bg-deep));
   color: var(--btn-primary-text);
   font-family: var(--font-mono);
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.02em;
+}
+
+.brand-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-img.is-missing {
+  display: none;
+}
+
+.brand-fallback.is-hidden {
+  visibility: hidden;
 }
 
 .brand-name {
@@ -2118,11 +2139,6 @@ html.cert-modal-lock body {
   margin: 0;
   color: var(--text-secondary);
   font-size: var(--fs-base);
-}
-
-.footer-note {
-  font-family: var(--font-mono);
-  font-size: var(--fs-sm);
 }
 
 @media (max-width: 47.9rem) {

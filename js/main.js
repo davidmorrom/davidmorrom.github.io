@@ -241,8 +241,8 @@
      Imágenes opcionales (retrato del hero y logos de formación): si el
      archivo aún no existe, se oculta la imagen rota y queda el fallback.
      ------------------------------------------------------------------------ */
-  document.querySelectorAll(".portrait-img, .logo-img").forEach(function (img) {
-    var fallback = img.parentElement.querySelector(".portrait-fallback, .logo-fallback");
+  document.querySelectorAll(".portrait-img, .logo-img, .brand-img").forEach(function (img) {
+    var fallback = img.parentElement.querySelector(".portrait-fallback, .logo-fallback, .brand-fallback");
 
     function markMissing() {
       img.classList.add("is-missing");
