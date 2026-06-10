@@ -6,31 +6,74 @@
 
 /* --------------------------------------------------------------------------
    1. TOKENS DE DISEÑO
-   Decisiones cerradas (ver CLAUDE.md). Contrastes verificados sobre la
-   superficie real en la que se asienta cada texto.
+   Paleta azul cobalto + cian con modo claro/oscuro (ver CLAUDE.md).
+   El oscuro es el modo por defecto (:root); el claro se activa con
+   html[data-theme="light"] (lo fija el script inline del <head> y el toggle).
+   Contrastes verificados sobre la superficie real de cada texto.
    -------------------------------------------------------------------------- */
 :root {
-  /* Color: fondo y superficies */
-  --bg-top: #0a1f3f;
-  --bg-bottom: #143a6b;
-  --surface: #0f2a52;          /* tarjeta base */
-  --surface-raised: #16386b;   /* tarjeta elevada */
-  --border: #2f5288;           /* borde mínimo visible */
-  --border-strong: #41679f;
+  color-scheme: dark;
 
-  /* Color: acción y acento */
-  --accent: #7bbcf5;           /* enlaces, foco, detalles */
-  --accent-2: #7ce0c3;         /* menta: acento secundario decorativo */
-  --accent-3: #f2c27b;         /* ámbar: acento terciario decorativo */
-  --btn-primary-bg: #3b82d6;
+  /* Color: fondo y superficies */
+  --bg-top: #070d1a;
+  --bg-bottom: #0e1626;
+  --surface: #0e1626;          /* tarjeta base */
+  --surface-raised: #152038;   /* tarjeta elevada */
+  --border: #21304d;           /* borde mínimo visible */
+  --border-strong: #324a73;
+
+  /* Color: acción y acento.
+     --accent (azul claro, AA) es el acento de texto/enlaces.
+     --accent-2 es el cian firma: en oscuro sirve también como texto (AAA),
+     pero como TEXTO debe usarse siempre vía --accent-2-text (en modo claro
+     el cian no alcanza contraste y pasa a cobalto: regla crítica). */
+  --accent: #5a9bff;
+  --accent-rgb: 90, 155, 255;
+  --accent-2: #22e0d6;            /* cian: rellenos, halos, bordes, detalles */
+  --accent-2-rgb: 34, 224, 214;
+  --accent-2-text: #22e0d6;       /* cian COMO TEXTO (en claro → cobalto) */
+  --accent-3: var(--accent);      /* alias: la paleta cobalto+cian no tiene
+                                     tercer acento; se conserva el nombre */
+  --accent-3-rgb: var(--accent-rgb);
+  --btn-primary-bg: #2f6bff;
+  --btn-primary-bg-hover: #4a80ff;
+  --btn-primary-bg-deep: #2452c4;
   --btn-primary-text: #ffffff;
+  --chip-cyan-bg: #22e0d6;        /* chip cian sólido: siempre con texto oscuro */
+  --chip-cyan-text: #04201e;
 
   /* Color: texto.
-     --text (~15.8:1) y --text-secondary (~8.9:1) son AAA sobre superficies.
+     --text (~15.6:1) y --text-secondary (~7.1:1) son AAA sobre superficies.
      --text-faint SOLO para texto grande (≥24px o ≥18.7px bold), nunca cuerpo. */
-  --text: #f2f7fd;
-  --text-secondary: #b9cce4;
-  --text-faint: #8ba3c2;
+  --text: #e9eefb;
+  --text-secondary: #94a3c2;
+  --text-faint: #7e90b3;
+
+  /* Cabecera translúcida (deriva de --bg-top) */
+  --header-bg: rgba(7, 13, 26, 0.82);
+  --header-bg-scrolled: rgba(7, 13, 26, 0.92);
+
+  /* Degradado frío de titulares (ambos extremos con contraste AAA) */
+  --title-grad-1: #ffffff;
+  --title-grad-2: #d9e6ff;
+  --title-grad-3: #9cc2ff;
+
+  /* Caja de logos de formación: clara en ambos temas (logos reales encima) */
+  --logo-box-bg: #f6f8fb;
+  --logo-box-text: #0e1b33;
+
+  /* Cielo de la constelación: SIEMPRE oscuro (también en modo claro); las
+     estrellas/halos/líneas cian necesitan fondo nocturno. Por eso sus textos
+     no usan --text/--text-secondary, que en claro se vuelven oscuros. */
+  --sky-glow: #16295c;
+  --sky-top: #0c1c42;
+  --sky-bottom: #070e20;
+  --sky-label: #94a3c2;
+  --sky-label-strong: #e9eefb;
+  --sky-text-shadow: rgba(4, 10, 24, 0.9);
+  --star: #22e0d6;                /* cian firma de estrellas y halos */
+  --star-rgb: 34, 224, 214;
+  --star-deep: #2f6bff;
 
   /* Tipografía */
   --font-display: "Fraunces", Georgia, serif;
@@ -60,15 +103,68 @@
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-pill: 999px;
-  --shadow-soft: 0 10px 30px rgba(4, 12, 28, 0.45);
-  --shadow-raised: 0 16px 44px rgba(4, 12, 28, 0.6);
+  --shadow-soft: 0 10px 30px rgba(2, 6, 16, 0.45);
+  --shadow-raised: 0 16px 44px rgba(2, 6, 16, 0.6);
+  --shadow-ink: rgba(2, 6, 16, 0.55);   /* color para drop-shadow() */
 
-  /* Foco accesible */
+  /* Foco accesible (toma el acento del modo activo) */
   --focus-ring: 2px solid var(--accent);
 
   /* Layout */
   --container-max: 72rem;
   --header-h: 4.25rem;
+}
+
+/* Modo claro: solo se redefinen los tokens de color. Los tokens --sky-* y el
+   chip cian NO cambian de lógica: el cielo de la constelación sigue oscuro.
+   REGLA CRÍTICA DEL CIAN EN CLARO: #06b6c4 sobre blanco da 2.47:1 → prohibido
+   como texto/enlace; solo relleno sin texto encima o con texto #022e32. */
+html[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-top: #eef3fb;
+  --bg-bottom: #ffffff;
+  --surface: #ffffff;
+  --surface-raised: #f4f7fd;
+  --border: #ccd8ec;
+  --border-strong: #a9bdda;
+
+  --accent: #1452e0;              /* cobalto, AA sobre blanco (~6.3:1) */
+  --accent-rgb: 20, 82, 224;
+  --accent-2: #06b6c4;            /* cian SOLO relleno: nunca texto en claro */
+  --accent-2-rgb: 6, 182, 196;
+  --accent-2-text: #1452e0;       /* el texto que en oscuro era cian → cobalto */
+  --btn-primary-bg: #1452e0;
+  --btn-primary-bg-hover: #2a63e8;
+  --btn-primary-bg-deep: #0f3eae;
+  --chip-cyan-bg: #06b6c4;
+  --chip-cyan-text: #022e32;      /* único texto permitido sobre cian en claro */
+
+  --text: #0e1b33;                /* ~17.2:1, AAA */
+  --text-secondary: #52617d;      /* ~6.2:1, AA */
+  --text-faint: #5e6f8c;
+
+  --header-bg: rgba(238, 243, 251, 0.85);
+  --header-bg-scrolled: rgba(238, 243, 251, 0.95);
+
+  --title-grad-1: #0e1b33;
+  --title-grad-2: #123587;
+  --title-grad-3: #1452e0;
+
+  --shadow-soft: 0 10px 30px rgba(16, 35, 74, 0.12);
+  --shadow-raised: 0 16px 44px rgba(16, 35, 74, 0.18);
+  --shadow-ink: rgba(16, 35, 74, 0.28);
+}
+
+/* Transición breve al cambiar de tema: main.js añade .theme-anim un instante
+   (y NO la añade con prefers-reduced-motion → cambio instantáneo) */
+html.theme-anim,
+html.theme-anim body,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+  transition: background-color 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, fill 0.25s ease, stroke 0.25s ease;
 }
 
 /* --------------------------------------------------------------------------
@@ -222,25 +318,25 @@ button {
   background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
 }
 
-/* Tinte de color propio por sección (decorativo, alterna los tres acentos) */
+/* Tinte de color propio por sección (decorativo, alterna cobalto y cian) */
 #sobre-mi {
-  background: radial-gradient(55% 60% at 88% 0%, rgba(123, 188, 245, 0.1), transparent 70%);
+  background: radial-gradient(55% 60% at 88% 0%, rgba(var(--accent-rgb), 0.1), transparent 70%);
 }
 
 #stack {
-  background: radial-gradient(55% 60% at 10% 6%, rgba(124, 224, 195, 0.08), transparent 70%);
+  background: radial-gradient(55% 60% at 10% 6%, rgba(var(--accent-2-rgb), 0.08), transparent 70%);
 }
 
 #proyectos {
-  background: radial-gradient(50% 55% at 90% 8%, rgba(242, 194, 123, 0.08), transparent 70%);
+  background: radial-gradient(50% 55% at 90% 8%, rgba(var(--accent-rgb), 0.08), transparent 70%);
 }
 
 #experiencia {
-  background: radial-gradient(55% 60% at 8% 5%, rgba(123, 188, 245, 0.1), transparent 70%);
+  background: radial-gradient(55% 60% at 8% 5%, rgba(var(--accent-2-rgb), 0.08), transparent 70%);
 }
 
 #formacion {
-  background: radial-gradient(50% 55% at 90% 6%, rgba(124, 224, 195, 0.08), transparent 70%);
+  background: radial-gradient(50% 55% at 90% 6%, rgba(var(--accent-rgb), 0.08), transparent 70%);
 }
 
 /* --------------------------------------------------------------------------
@@ -250,7 +346,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(10, 31, 63, 0.82);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
@@ -259,7 +355,7 @@ button {
 
 .site-header.is-scrolled {
   border-bottom-color: var(--border);
-  background: rgba(10, 31, 63, 0.92);
+  background: var(--header-bg-scrolled);
 }
 
 .site-nav {
@@ -285,7 +381,7 @@ button {
   width: 2.4rem;
   height: 2.4rem;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--btn-primary-bg), #2a5fa8);
+  background: linear-gradient(135deg, var(--btn-primary-bg), var(--btn-primary-bg-deep));
   color: var(--btn-primary-text);
   font-family: var(--font-mono);
   font-size: 0.9rem;
@@ -302,6 +398,8 @@ button {
   display: flex;
   align-items: center;
   gap: var(--space-5);
+  /* empuja enlaces + toggle de tema al extremo derecho */
+  margin-left: auto;
 }
 
 .nav-links a {
@@ -366,9 +464,48 @@ button {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Toggle de modo claro/oscuro (sol en oscuro, luna en claro) */
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.theme-toggle svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+html[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+html[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+
 @media (max-width: 47.9rem) {
   .nav-toggle {
     display: flex;
+    /* con .nav-links desplegado en absoluto, agrupa hamburguesa + toggle
+       de tema a la derecha */
+    margin-left: auto;
   }
 
   .nav-links {
@@ -465,9 +602,9 @@ button {
   text-transform: uppercase;
   color: var(--accent);
   padding: 0.3rem 0.85rem;
-  border: 1px solid rgba(123, 188, 245, 0.35);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
   border-radius: var(--radius-pill);
-  background: rgba(123, 188, 245, 0.1);
+  background: rgba(var(--accent-rgb), 0.1);
   margin-bottom: var(--space-4);
 }
 
@@ -526,7 +663,7 @@ button {
 }
 
 .btn-primary:hover {
-  background: #4a90e0;
+  background: var(--btn-primary-bg-hover);
 }
 
 .btn-ghost {
@@ -559,7 +696,7 @@ button {
   position: absolute;
   inset: 7%;
   border-radius: 50%;
-  background: conic-gradient(from 210deg, #3b82d6, #7bbcf5, #16386b, #3b82d6);
+  background: conic-gradient(from 210deg, var(--btn-primary-bg), var(--accent-2), var(--surface-raised), var(--btn-primary-bg));
   filter: blur(1px);
 }
 
@@ -569,7 +706,7 @@ button {
   position: absolute;
   inset: -4%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(123, 188, 245, 0.18) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.18) 0%, transparent 65%);
   z-index: -1;
 }
 
@@ -621,21 +758,21 @@ button {
   animation: badge-float 7s ease-in-out infinite;
 }
 
-/* Borde con acento propio por badge (decorativo) */
+/* Borde con acento propio por badge (decorativo, alterna cobalto y cian) */
 .hero-badge.badge-1 {
-  border-color: rgba(123, 188, 245, 0.55);
+  border-color: rgba(var(--accent-rgb), 0.55);
 }
 
 .hero-badge.badge-2 {
-  border-color: rgba(124, 224, 195, 0.55);
+  border-color: rgba(var(--accent-2-rgb), 0.55);
 }
 
 .hero-badge.badge-3 {
-  border-color: rgba(242, 194, 123, 0.55);
+  border-color: rgba(var(--accent-rgb), 0.55);
 }
 
 .hero-badge.badge-4 {
-  border-color: rgba(123, 188, 245, 0.55);
+  border-color: rgba(var(--accent-2-rgb), 0.55);
 }
 
 .badge-1 { top: 4%;  left: -2%;  animation-delay: 0s; }
@@ -655,7 +792,7 @@ button {
   width: clamp(5.5rem, 9vw, 7.5rem);
   left: -9%;
   bottom: 22%;
-  filter: drop-shadow(0 8px 18px rgba(4, 12, 28, 0.55));
+  filter: drop-shadow(0 8px 18px var(--shadow-ink));
   animation: badge-float 8s ease-in-out infinite;
   animation-delay: -2.5s;
 }
@@ -730,32 +867,34 @@ html.lenis body {
   text-transform: uppercase;
   color: var(--accent);
   padding: 0.3rem 0.85rem;
-  border: 1px solid rgba(123, 188, 245, 0.35);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
   border-radius: var(--radius-pill);
-  background: rgba(123, 188, 245, 0.1);
+  background: rgba(var(--accent-rgb), 0.1);
   margin-bottom: var(--space-3);
 }
 
-/* Cada sección lleva su acento (decorativo: la numeración 01–06 ya ordena) */
+/* Cada sección lleva su acento (decorativo: la numeración 01–06 ya ordena).
+   El texto cian usa --accent-2-text (en claro pasa a cobalto: regla crítica);
+   borde y fondo son rellenos y sí pueden seguir en cian. */
 #stack .section-eyebrow,
 #formacion .section-eyebrow {
-  color: var(--accent-2);
-  border-color: rgba(124, 224, 195, 0.35);
-  background: rgba(124, 224, 195, 0.08);
+  color: var(--accent-2-text);
+  border-color: rgba(var(--accent-2-rgb), 0.35);
+  background: rgba(var(--accent-2-rgb), 0.08);
 }
 
 #proyectos .section-eyebrow,
 #contacto .section-eyebrow {
   color: var(--accent-3);
-  border-color: rgba(242, 194, 123, 0.35);
-  background: rgba(242, 194, 123, 0.08);
+  border-color: rgba(var(--accent-3-rgb), 0.35);
+  background: rgba(var(--accent-3-rgb), 0.08);
 }
 
 /* Titulares con degradado frío (ambos extremos mantienen contraste AAA) */
 .hero-title,
 .section-title,
 .contact-title {
-  background: linear-gradient(120deg, #ffffff 0%, #d6e7fb 55%, #9cc6ef 100%);
+  background: linear-gradient(120deg, var(--title-grad-1) 0%, var(--title-grad-2) 55%, var(--title-grad-3) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -860,7 +999,7 @@ html.lenis body {
 
 /* Las tres cifras alternan los acentos (decorativo) */
 .stat:nth-child(2) .stat-number {
-  color: var(--accent-2);
+  color: var(--accent-2-text);
 }
 
 .stat:nth-child(3) .stat-number {
@@ -911,9 +1050,10 @@ html.lenis body {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  /* tokens --sky-*: el cielo es nocturno en ambos temas */
   background:
-    radial-gradient(120% 130% at 72% 12%, #133158 0%, transparent 55%),
-    linear-gradient(200deg, #0b2148 0%, #081830 100%);
+    radial-gradient(120% 130% at 72% 12%, var(--sky-glow) 0%, transparent 55%),
+    linear-gradient(200deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
   transition: filter 0.55s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.55s ease;
 }
@@ -957,10 +1097,10 @@ html.lenis body {
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff, var(--accent) 55%, #3b82d6);
+  background: radial-gradient(circle at 35% 35%, #ffffff, var(--star) 55%, var(--star-deep));
   box-shadow:
-    0 0 0 4px rgba(123, 188, 245, 0.14),
-    0 0 14px 2px rgba(123, 188, 245, 0.55);
+    0 0 0 4px rgba(var(--star-rgb), 0.14),
+    0 0 14px 2px rgba(var(--star-rgb), 0.55);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -968,23 +1108,30 @@ html.lenis body {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   font-weight: 500;
-  color: var(--text-secondary);
+  /* sobre el cielo (siempre oscuro) van los tokens --sky-*, no --text-* */
+  color: var(--sky-label);
   white-space: nowrap;
-  text-shadow: 0 2px 8px rgba(4, 12, 28, 0.9);
+  text-shadow: 0 2px 8px var(--sky-text-shadow);
   transition: color 0.2s ease;
+}
+
+/* El anillo de foco del modo claro (cobalto) se perdería sobre el cielo
+   oscuro: en los nodos el foco es cian en ambos temas */
+.tech-node:focus-visible {
+  outline-color: var(--star);
 }
 
 .tech-node:hover .tech-node-dot,
 .tech-node:focus-visible .tech-node-dot {
   transform: scale(1.45);
   box-shadow:
-    0 0 0 6px rgba(123, 188, 245, 0.2),
-    0 0 22px 5px rgba(123, 188, 245, 0.75);
+    0 0 0 6px rgba(var(--star-rgb), 0.2),
+    0 0 22px 5px rgba(var(--star-rgb), 0.75);
 }
 
 .tech-node:hover .tech-node-label,
 .tech-node:focus-visible .tech-node-label {
-  color: var(--text);
+  color: var(--sky-label-strong);
 }
 
 /* Panel de destino (al "viajar" a una estrella) */
@@ -1460,7 +1607,7 @@ html.lenis body {
   place-items: center;
   min-height: 7.5rem;
   padding: var(--space-5);
-  background: #f6f8fb;
+  background: var(--logo-box-bg);
   border-bottom: 1px solid var(--border);
   position: relative;
 }
@@ -1483,7 +1630,7 @@ html.lenis body {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 700;
-  color: #1d3d6b;
+  color: var(--logo-box-text);
   letter-spacing: 0.04em;
 }
 
@@ -1575,6 +1722,128 @@ html.lenis body {
   }
 }
 
+/* Certificados clicables (Certificaciones y formación adicional).
+   El disparador es un <button> (visor modal) o un <a> (credencial externa);
+   la affordance no depende solo del color: chip con borde + icono + cursor */
+.cert-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.cert-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.cert-trigger:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.cert-ico {
+  width: 0.95em;
+  height: 0.95em;
+  flex-shrink: 0;
+}
+
+/* Visor modal: <dialog> nativo (top layer; el fondo queda inerte) */
+.cert-modal {
+  width: min(100% - 2rem, 56rem);
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-raised);
+}
+
+.cert-modal::backdrop {
+  background: rgba(2, 6, 16, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* La regla global de prefers-reduced-motion anula esta animación */
+.cert-modal[open] {
+  animation: cert-modal-in 0.3s ease;
+}
+
+@keyframes cert-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+}
+
+.cert-modal-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.cert-modal-title {
+  margin: 0;
+  font-size: var(--fs-md);
+}
+
+.cert-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.cert-modal-actions .btn {
+  padding: 0.45rem 1.1rem;
+  font-size: var(--fs-sm);
+}
+
+.cert-modal-body {
+  height: min(72svh, 46rem);
+  overflow: auto;
+  background: var(--surface-raised);
+}
+
+.cert-modal-body iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.cert-modal-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  padding: var(--space-4);
+}
+
+/* Mientras el visor está abierto se bloquea el scroll de fondo (transitorio:
+   el overflow-x:clip base se restaura al cerrar; el sticky no se ve afectado
+   porque la página queda detrás del modal) */
+html.cert-modal-lock,
+html.cert-modal-lock body {
+  overflow: hidden;
+}
+
 /* --------------------------------------------------------------------------
    13. CONTACTO / FOOTER
    -------------------------------------------------------------------------- */
@@ -1585,7 +1854,7 @@ html.lenis body {
 .contact-card {
   padding: clamp(var(--space-6), 5vw, var(--space-8));
   background:
-    radial-gradient(120% 140% at 85% -10%, rgba(123, 188, 245, 0.14), transparent 60%),
+    radial-gradient(120% 140% at 85% -10%, rgba(var(--accent-rgb), 0.14), transparent 60%),
     var(--surface-raised);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);

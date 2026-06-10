@@ -98,7 +98,9 @@ function build() {
         "void main() {",
         "  float d = length(gl_PointCoord - 0.5);",
         "  float a = smoothstep(0.5, 0.0, d) * vAlpha;",
-        "  gl_FragColor = vec4(0.81, 0.89, 0.97, a);",
+        // blanco-cian (firma de la paleta cobalto+cian; el cielo es oscuro
+        // en ambos temas, ver tokens --sky-* en css/styles.css)
+        "  gl_FragColor = vec4(0.55, 0.93, 0.90, a);",
         "}"
       ].join("\n")
     });
@@ -116,9 +118,10 @@ function build() {
     c.width = c.height = 128;
     const g = c.getContext("2d");
     const grad = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+    // cian #22e0d6 (mismo valor que --star en css/styles.css)
     grad.addColorStop(0, "rgba(255, 255, 255, 1)");
-    grad.addColorStop(0.25, "rgba(123, 188, 245, 0.85)");
-    grad.addColorStop(1, "rgba(123, 188, 245, 0)");
+    grad.addColorStop(0.25, "rgba(34, 224, 214, 0.85)");
+    grad.addColorStop(1, "rgba(34, 224, 214, 0)");
     g.fillStyle = grad;
     g.fillRect(0, 0, 128, 128);
     return new THREE.CanvasTexture(c);
@@ -204,7 +207,7 @@ function build() {
   });
   const lines = new THREE.LineSegments(
     new THREE.BufferGeometry().setFromPoints(linePoints),
-    new THREE.LineBasicMaterial({ color: 0x7bbcf5, transparent: true, opacity: 0.22 })
+    new THREE.LineBasicMaterial({ color: 0x22e0d6, transparent: true, opacity: 0.22 })
   );
   scene.add(lines);
 

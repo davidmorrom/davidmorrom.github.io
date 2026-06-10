@@ -10,6 +10,58 @@
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   /* ------------------------------------------------------------------------
+     Tema claro/oscuro. El script inline del <head> ya fijó data-theme antes
+     del primer render; aquí solo se gestiona el toggle, la persistencia y el
+     seguimiento del sistema cuando no hay preferencia guardada.
+     Los colores duplican --bg-top de css/styles.css.
+     ------------------------------------------------------------------------ */
+  var themeToggle = document.querySelector(".theme-toggle");
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  var THEME_COLORS = { dark: "#070d1a", light: "#eef3fb" };
+  var themeAnimTimer;
+
+  function currentTheme() {
+    return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    if (themeMeta) themeMeta.setAttribute("content", THEME_COLORS[theme]);
+    if (themeToggle) themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+  }
+
+  if (themeToggle) {
+    // Sincroniza aria-pressed con el tema que fijó el script del <head>
+    applyTheme(currentTheme());
+
+    themeToggle.addEventListener("click", function () {
+      var next = currentTheme() === "light" ? "dark" : "light";
+      // Transición breve de colores; instantánea con reduced-motion
+      if (!prefersReducedMotion.matches) {
+        document.documentElement.classList.add("theme-anim");
+        clearTimeout(themeAnimTimer);
+        themeAnimTimer = setTimeout(function () {
+          document.documentElement.classList.remove("theme-anim");
+        }, 300);
+      }
+      applyTheme(next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+
+    // Sin preferencia guardada, el tema sigue al del sistema
+    var systemLight = window.matchMedia("(prefers-color-scheme: light)");
+    if (typeof systemLight.addEventListener === "function") {
+      systemLight.addEventListener("change", function (event) {
+        var stored = null;
+        try { stored = localStorage.getItem("theme"); } catch (e) {}
+        if (stored !== "light" && stored !== "dark") {
+          applyTheme(event.matches ? "light" : "dark");
+        }
+      });
+    }
+  }
+
+  /* ------------------------------------------------------------------------
      Cabecera: estado "scrolled" para marcar el borde inferior
      ------------------------------------------------------------------------ */
   var header = document.querySelector(".site-header");
@@ -131,6 +183,75 @@
       else markLoaded();
     }
   });
+
+  /* ------------------------------------------------------------------------
+     Visor de diplomas (Formación → Certificaciones): los .cert-trigger abren
+     el <dialog class="cert-modal"> con el PDF (iframe) o el PNG (img) que
+     indican sus data-cert*. showModal() da gratis el foco atrapado (el resto
+     de la página queda inerte), Escape y aria-modal; aquí se gestionan el
+     backdrop, la devolución de foco y el bloqueo de scroll de fondo.
+     ------------------------------------------------------------------------ */
+  var certModal = document.querySelector(".cert-modal");
+  var certTriggers = document.querySelectorAll(".cert-trigger[data-cert]");
+
+  if (certModal && certTriggers.length && typeof certModal.showModal === "function") {
+    var certTitle = certModal.querySelector(".cert-modal-title");
+    var certBody = certModal.querySelector(".cert-modal-body");
+    var certNewTab = certModal.querySelector(".cert-modal-newtab");
+    var certClose = certModal.querySelector(".cert-modal-close");
+    var certOpener = null;
+
+    certTriggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        var src = trigger.dataset.cert;
+        var title = trigger.dataset.certTitle || trigger.textContent.trim();
+        certOpener = trigger;
+        certTitle.textContent = title;
+        certNewTab.href = src;
+
+        certBody.innerHTML = "";
+        if (trigger.dataset.certType === "img") {
+          var img = document.createElement("img");
+          img.src = src;
+          img.alt = trigger.dataset.certAlt || "Diploma: " + title;
+          certBody.appendChild(img);
+        } else {
+          var frame = document.createElement("iframe");
+          frame.src = src;
+          frame.title = "Diploma: " + title;
+          certBody.appendChild(frame);
+        }
+
+        document.documentElement.classList.add("cert-modal-lock");
+        certModal.showModal();
+        certClose.focus();
+      });
+    });
+
+    certClose.addEventListener("click", function () {
+      certModal.close();
+    });
+
+    // Clic en el backdrop: el target es el propio <dialog> (su interior
+    // está cubierto por .cert-modal-head/.cert-modal-body)
+    certModal.addEventListener("click", function (event) {
+      if (event.target === certModal) certModal.close();
+    });
+
+    // 'close' cubre Escape, el botón y el backdrop
+    certModal.addEventListener("close", function () {
+      document.documentElement.classList.remove("cert-modal-lock");
+      certBody.innerHTML = ""; // descarga el PDF/imagen
+      if (certOpener) certOpener.focus();
+    });
+  } else if (certTriggers.length) {
+    // Navegador sin <dialog>: degradación a abrir el archivo en una pestaña
+    certTriggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        window.open(trigger.dataset.cert, "_blank", "noopener");
+      });
+    });
+  }
 
   /* ------------------------------------------------------------------------
      Cifras de "Sobre mí": contador animado al entrar en viewport.

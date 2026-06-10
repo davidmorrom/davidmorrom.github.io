@@ -5,8 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>David Moreno Romero — Developer &amp; Tech Consultant</title>
   <meta name="description" content="Portfolio de David Moreno Romero, developer y consultor tecnológico en Madrid. Desarrollo, consultoría estratégica y adopción de IA.">
-  <meta name="theme-color" content="#0a1f3f">
+  <meta name="theme-color" content="#070d1a">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Tema claro/oscuro ANTES del primer render (evita el flash de tema
+       incorrecto). Preferencia guardada > preferencia del sistema > oscuro.
+       Los colores duplican --bg-top de css/styles.css. -->
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem("theme"); } catch (e) {}
+      var theme = stored === "light" || stored === "dark"
+        ? stored
+        : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.dataset.theme = theme;
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "light" ? "#eef3fb" : "#070d1a");
+    })();
+  </script>
 
   <!-- Open Graph básico -->
   <meta property="og:title" content="David Moreno Romero — Developer &amp; Tech Consultant">
@@ -47,6 +63,20 @@
         <li><a href="#formacion">Formación</a></li>
         <li><a class="nav-cta" href="#contacto">Contacto</a></li>
       </ul>
+
+      <button class="theme-toggle" type="button" aria-label="Modo claro" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/>
+          <g stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none">
+            <path d="M12 2.6v2.4"/><path d="M12 19v2.4"/><path d="M2.6 12H5"/><path d="M19 12h2.4"/>
+            <path d="M5.4 5.4l1.7 1.7"/><path d="M16.9 16.9l1.7 1.7"/>
+            <path d="M18.6 5.4l-1.7 1.7"/><path d="M7.1 16.9l-1.7 1.7"/>
+          </g>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M20.6 14.6A8.5 8.5 0 0 1 9.4 3.4a8.5 8.5 0 1 0 11.2 11.2z"/>
+        </svg>
+      </button>
     </nav>
   </header>
 
@@ -93,24 +123,24 @@
             <svg class="hero-laptop" viewBox="0 0 120 84" role="img" aria-label="Ilustración de un portátil abierto">
               <defs>
                 <linearGradient id="laptop-screen" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#16386b"/>
-                  <stop offset="1" stop-color="#0f2a52"/>
+                  <stop offset="0" stop-color="#152038"/>
+                  <stop offset="1" stop-color="#0e1626"/>
                 </linearGradient>
               </defs>
               <!-- pantalla -->
-              <rect x="22" y="6" width="76" height="52" rx="5" fill="#0a1f3f" stroke="#2f5288" stroke-width="2"/>
+              <rect x="22" y="6" width="76" height="52" rx="5" fill="#070d1a" stroke="#21304d" stroke-width="2"/>
               <rect x="27" y="11" width="66" height="42" rx="3" fill="url(#laptop-screen)"/>
               <!-- formas abstractas de UI en pantalla -->
-              <circle cx="36" cy="20" r="3.5" fill="#7bbcf5"/>
-              <rect x="43" y="17.5" width="28" height="5" rx="2.5" fill="#3b82d6"/>
-              <rect x="33" y="29" width="42" height="4" rx="2" fill="#2f5288"/>
-              <rect x="33" y="37" width="30" height="4" rx="2" fill="#2f5288"/>
-              <path d="M80 34 l6 6 -6 6" fill="none" stroke="#7bbcf5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="36" cy="20" r="3.5" fill="#22e0d6"/>
+              <rect x="43" y="17.5" width="28" height="5" rx="2.5" fill="#2f6bff"/>
+              <rect x="33" y="29" width="42" height="4" rx="2" fill="#21304d"/>
+              <rect x="33" y="37" width="30" height="4" rx="2" fill="#21304d"/>
+              <path d="M80 34 l6 6 -6 6" fill="none" stroke="#22e0d6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               <!-- base / teclado -->
-              <path d="M14 60 h92 l8 14 a3 3 0 0 1 -3 4 H9 a3 3 0 0 1 -3 -4 z" fill="#16386b" stroke="#2f5288" stroke-width="2"/>
-              <rect x="48" y="66" width="24" height="5" rx="2.5" fill="#2f5288"/>
+              <path d="M14 60 h92 l8 14 a3 3 0 0 1 -3 4 H9 a3 3 0 0 1 -3 -4 z" fill="#152038" stroke="#21304d" stroke-width="2"/>
+              <rect x="48" y="66" width="24" height="5" rx="2.5" fill="#21304d"/>
               <!-- chispa: la curiosidad que lo arrancó todo -->
-              <path d="M104 14 l2.2 5 5 2.2 -5 2.2 -2.2 5 -2.2 -5 -5 -2.2 5 -2.2 z" fill="#7bbcf5"/>
+              <path d="M104 14 l2.2 5 5 2.2 -5 2.2 -2.2 5 -2.2 -5 -5 -2.2 5 -2.2 z" fill="#22e0d6"/>
             </svg>
           </div>
         </div>
@@ -176,12 +206,12 @@
             <svg class="about-chip" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
               <defs>
                 <linearGradient id="chip-body" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#16386b"/>
-                  <stop offset="1" stop-color="#0f2a52"/>
+                  <stop offset="0" stop-color="#152038"/>
+                  <stop offset="1" stop-color="#0e1626"/>
                 </linearGradient>
               </defs>
               <!-- pistas de circuito -->
-              <g stroke="#2f5288" stroke-width="2" fill="none" stroke-linecap="round">
+              <g stroke="#21304d" stroke-width="2" fill="none" stroke-linecap="round">
                 <path d="M30 30 h28 v22"/>
                 <path d="M170 32 h-26 v20"/>
                 <path d="M28 168 h32 v-20"/>
@@ -189,7 +219,7 @@
                 <path d="M14 100 h34"/>
                 <path d="M152 100 h34"/>
               </g>
-              <g fill="#7bbcf5">
+              <g fill="#22e0d6">
                 <circle cx="30" cy="30" r="4"/>
                 <circle cx="170" cy="32" r="4"/>
                 <circle cx="28" cy="168" r="4"/>
@@ -198,7 +228,7 @@
                 <circle cx="186" cy="100" r="4"/>
               </g>
               <!-- patillas -->
-              <g fill="#41679f">
+              <g fill="#324a73">
                 <rect x="78" y="44" width="8" height="14" rx="2"/>
                 <rect x="96" y="44" width="8" height="14" rx="2"/>
                 <rect x="114" y="44" width="8" height="14" rx="2"/>
@@ -213,9 +243,9 @@
                 <rect x="142" y="114" width="14" height="8" rx="2"/>
               </g>
               <!-- cuerpo del chip -->
-              <rect x="58" y="58" width="84" height="84" rx="12" fill="url(#chip-body)" stroke="#41679f" stroke-width="2"/>
-              <rect x="72" y="72" width="56" height="56" rx="8" fill="none" stroke="#2f5288" stroke-width="2"/>
-              <text x="100" y="106" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#7bbcf5">DM</text>
+              <rect x="58" y="58" width="84" height="84" rx="12" fill="url(#chip-body)" stroke="#324a73" stroke-width="2"/>
+              <rect x="72" y="72" width="56" height="56" rx="8" fill="none" stroke="#21304d" stroke-width="2"/>
+              <text x="100" y="106" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#22e0d6">DM</text>
             </svg>
           </div>
         </div>
@@ -393,13 +423,13 @@
 
           <!-- SVG decorativo: estructura de nodos -->
           <svg class="section-deco deco-nodes" viewBox="0 0 160 110" aria-hidden="true" focusable="false">
-            <g stroke="#2f5288" stroke-width="1.5" fill="none">
+            <g stroke="#21304d" stroke-width="1.5" fill="none">
               <path d="M28 78 L62 30 L104 52 L136 18"/>
               <path d="M62 30 L98 14"/>
               <path d="M104 52 L122 88"/>
               <path d="M28 78 L70 92 L122 88"/>
             </g>
-            <g fill="#0f2a52" stroke="#7bbcf5" stroke-width="2">
+            <g fill="#0e1626" stroke="#22e0d6" stroke-width="2">
               <circle cx="28" cy="78" r="7"/>
               <circle cx="62" cy="30" r="9"/>
               <circle cx="104" cy="52" r="7"/>
@@ -408,7 +438,7 @@
               <circle cx="70" cy="92" r="5"/>
               <circle cx="122" cy="88" r="6"/>
             </g>
-            <circle cx="62" cy="30" r="3.5" fill="#7bbcf5"/>
+            <circle cx="62" cy="30" r="3.5" fill="#22e0d6"/>
           </svg>
         </header>
 
@@ -592,15 +622,15 @@
           <!-- SVG decorativo: engranaje (gira; se detiene con reduced-motion) -->
           <svg class="section-deco deco-gear" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
             <g class="gear-spin">
-              <path fill="#16386b" stroke="#41679f" stroke-width="2.5" d="M60 18
+              <path fill="#152038" stroke="#324a73" stroke-width="2.5" d="M60 18
                 l5.2 0 2.6 9.3 a34 34 0 0 1 8.6 3.6 l8.4-4.7 3.7 3.7 -4.7 8.4
                 a34 34 0 0 1 3.6 8.6 l9.3 2.6 0 5.2 0 5.2 -9.3 2.6 a34 34 0 0 1 -3.6 8.6
                 l4.7 8.4 -3.7 3.7 -8.4 -4.7 a34 34 0 0 1 -8.6 3.6 l-2.6 9.3 -5.2 0 -5.2 0
                 -2.6 -9.3 a34 34 0 0 1 -8.6 -3.6 l-8.4 4.7 -3.7 -3.7 4.7 -8.4
                 a34 34 0 0 1 -3.6 -8.6 l-9.3 -2.6 0 -5.2 0 -5.2 9.3 -2.6 a34 34 0 0 1 3.6 -8.6
                 l-4.7 -8.4 3.7 -3.7 8.4 4.7 a34 34 0 0 1 8.6 -3.6 l2.6 -9.3 z"/>
-              <circle cx="60" cy="60" r="17" fill="#0f2a52" stroke="#7bbcf5" stroke-width="2.5"/>
-              <circle cx="60" cy="60" r="6" fill="#7bbcf5"/>
+              <circle cx="60" cy="60" r="17" fill="#0e1626" stroke="#22e0d6" stroke-width="2.5"/>
+              <circle cx="60" cy="60" r="6" fill="#22e0d6"/>
             </g>
           </svg>
         </header>
@@ -648,15 +678,71 @@
 
         </div>
 
-        <!-- Certificaciones e idiomas (datos reales del CV; AWS Educate es
-             formación, NO la certificación AWS Cloud Practitioner) -->
+        <!-- Certificaciones e idiomas (datos reales del CV) -->
         <div class="education-extra">
           <article class="extra-card">
             <h3 class="extra-title">Certificaciones y formación adicional</h3>
             <ul class="extra-list">
-              <li><strong>AWS Educate</strong> (formación): Getting Started with Networking · Getting Started with Databases.</li>
-              <li><strong>Sage 200 — 200ES:</strong> Plataforma Avanzada (Seguridad) · Gestión Documental.</li>
-              <li><strong>Java:</strong> OpenWebinars Certificate.</li>
+              <li>
+                <strong>Sage 200 — 200ES</strong> (Sage University, 5 diplomas):
+                <span class="cert-group">
+                  <button class="cert-trigger" type="button" aria-haspopup="dialog"
+                          data-cert="assets/certf/200ES%20%E2%80%93%20Sage%20200%20%E2%80%93%20An%C3%A1lisis%20de%20Negocio.pdf"
+                          data-cert-type="pdf"
+                          data-cert-title="200ES – Sage 200 – Análisis de Negocio">
+                    <svg class="cert-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h5M10 16.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Análisis de Negocio<span class="sr-only"> (ver diploma en un visor)</span>
+                  </button>
+                  <button class="cert-trigger" type="button" aria-haspopup="dialog"
+                          data-cert="assets/certf/200ES%20%E2%80%93%20Sage%20200%20%E2%80%93%20Gesti%C3%B3n%20Documental.pdf"
+                          data-cert-type="pdf"
+                          data-cert-title="200ES – Sage 200 – Gestión Documental">
+                    <svg class="cert-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h5M10 16.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Gestión Documental<span class="sr-only"> (ver diploma en un visor)</span>
+                  </button>
+                  <button class="cert-trigger" type="button" aria-haspopup="dialog"
+                          data-cert="assets/certf/Diploma%20-%20200ES%20%E2%80%93%20Sage%20200%20%E2%80%93%20Gesti%C3%B3n.pdf"
+                          data-cert-type="pdf"
+                          data-cert-title="200ES – Sage 200 – Gestión">
+                    <svg class="cert-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h5M10 16.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Gestión<span class="sr-only"> (ver diploma en un visor)</span>
+                  </button>
+                  <button class="cert-trigger" type="button" aria-haspopup="dialog"
+                          data-cert="assets/certf/Diploma%20-%20200ES%20%E2%80%93%20Sage%20200%20%E2%80%93%20Plataforma%20Avanzada.pdf"
+                          data-cert-type="pdf"
+                          data-cert-title="200ES – Sage 200 – Plataforma Avanzada">
+                    <svg class="cert-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h5M10 16.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Plataforma Avanzada<span class="sr-only"> (ver diploma en un visor)</span>
+                  </button>
+                  <button class="cert-trigger" type="button" aria-haspopup="dialog"
+                          data-cert="assets/certf/Diploma%20-%20200ES%20%E2%80%93%20Sage%20200%20%E2%80%93%20Produccion%20Basica.pdf"
+                          data-cert-type="pdf"
+                          data-cert-title="200ES – Sage 200 – Producción Básica">
+                    <svg class="cert-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h5M10 16.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    Producción Básica<span class="sr-only"> (ver diploma en un visor)</span>
+                  </button>
+                </span>
+              </li>
+              <li>
+                <strong>Power Platform:</strong> Curso de Administración y Gobernanza
+                de Power Platform — CrossPoint 365, marzo 2025.
+                <a class="cert-trigger" href="https://openbadgepassport.com/app/badge/info/902811"
+                   target="_blank" rel="noopener noreferrer">
+                  <svg class="cert-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 5H5v14h14v-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 4h6v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4l-9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                  Ver credencial<span class="sr-only"> (se abre en una pestaña nueva)</span>
+                </a>
+              </li>
+              <li>
+                <strong>Java:</strong> OpenWebinars Certificate.
+                <button class="cert-trigger" type="button" aria-haspopup="dialog"
+                        data-cert="assets/certf/certificadoJava.png"
+                        data-cert-type="img"
+                        data-cert-title="Java — OpenWebinars Certificate"
+                        data-cert-alt="Certificado de OpenWebinars: Test de Aptitud Java, nivel Advanced, expedido a David Moreno Romero el 27 de octubre de 2023">
+                  <svg class="cert-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v4h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h5M10 16.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                  Ver certificado<span class="sr-only"> (se abre un visor)</span>
+                </button>
+              </li>
             </ul>
           </article>
 
@@ -714,6 +800,24 @@
       </div>
     </div>
   </footer>
+
+  <!-- Visor de diplomas/certificados: <dialog> nativo (showModal da el foco
+       atrapado, Escape y aria-modal); js/main.js lo abre desde .cert-trigger
+       e inyecta el iframe (PDF) o la imagen (PNG) en .cert-modal-body -->
+  <dialog class="cert-modal" aria-modal="true" aria-labelledby="cert-modal-titulo" data-lenis-prevent>
+    <div class="cert-modal-head">
+      <h3 class="cert-modal-title" id="cert-modal-titulo">Diploma</h3>
+      <div class="cert-modal-actions">
+        <a class="btn btn-ghost cert-modal-newtab" href="#" target="_blank" rel="noopener noreferrer">
+          Abrir en pestaña nueva<span class="sr-only"> (se abre en una pestaña nueva)</span>
+        </a>
+        <button class="btn btn-primary cert-modal-close" type="button" aria-label="Cerrar el visor de diplomas">
+          Cerrar
+        </button>
+      </div>
+    </div>
+    <div class="cert-modal-body"></div>
+  </dialog>
 
   <script src="js/main.js"></script>
 
