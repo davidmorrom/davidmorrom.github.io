@@ -19,7 +19,10 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 let started = false;
 
 function isVisible() {
-  return root && getComputedStyle(root).display !== "none";
+  if (!root || getComputedStyle(root).display === "none") return false;
+  // Abierto como overlay del panel-chip (main.js): el contenedor es visible
+  // pero el cielo no — ahí no hay escena que montar
+  return !root.classList.contains("is-chip-open");
 }
 
 function tryInit() {

@@ -444,8 +444,9 @@
 
         <div class="projects-grid">
 
-          <article class="project-card">
+          <article class="project-card project-card--work">
             <div class="project-meta">
+              <span class="project-flag project-flag--work"><svg class="project-flag-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 7.5V6a2.5 2.5 0 0 1 2.5-2.5h1A2.5 2.5 0 0 1 15 6v1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12.5h18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg> Trabajo</span>
               <span class="project-tag">ORS Consulting · SaaS</span>
               <span class="project-status"><span aria-hidden="true">◐</span> Pre-producción</span>
             </div>
@@ -464,9 +465,9 @@
             </ul>
           </article>
 
-          <article class="project-card">
+          <article class="project-card project-card--personal">
             <div class="project-meta">
-              <span class="project-tag">Proyecto personal</span>
+              <span class="project-flag project-flag--personal"><svg class="project-flag-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l1.9 6.1L20 11l-6.1 1.9L12 19l-1.9-6.1L4 11l6.1-1.9z" fill="currentColor"/></svg> Proyecto personal</span>
             </div>
             <h3 class="project-title">SOMA</h3>
             <p class="project-desc">
@@ -485,9 +486,9 @@
             </ul>
           </article>
 
-          <article class="project-card">
+          <article class="project-card project-card--personal">
             <div class="project-meta">
-              <span class="project-tag">Proyecto personal</span>
+              <span class="project-flag project-flag--personal"><svg class="project-flag-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l1.9 6.1L20 11l-6.1 1.9L12 19l-1.9-6.1L4 11l6.1-1.9z" fill="currentColor"/></svg> Proyecto personal</span>
             </div>
             <h3 class="project-title">Sanea</h3>
             <p class="project-desc">
@@ -504,8 +505,9 @@
             </ul>
           </article>
 
-          <article class="project-card">
+          <article class="project-card project-card--work">
             <div class="project-meta">
+              <span class="project-flag project-flag--work"><svg class="project-flag-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="7.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 7.5V6a2.5 2.5 0 0 1 2.5-2.5h1A2.5 2.5 0 0 1 15 6v1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12.5h18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg> Trabajo</span>
               <span class="project-tag">Deloitte · interna</span>
             </div>
             <h3 class="project-title">App de renovación de dispositivos</h3>
@@ -540,9 +542,9 @@
           <!-- Índice lateral sticky -->
           <nav class="dossier-index" aria-label="Índice de experiencia">
             <ul>
-              <li><a href="#exp-ors" class="dossier-link" aria-current="true"><span class="dossier-ref" aria-hidden="true">01</span> ORS Consulting</a></li>
+              <li><a href="#exp-ors" class="dossier-link" aria-current="true"><span class="dossier-ref" aria-hidden="true">03</span> ORS Consulting</a></li>
               <li><a href="#exp-deloitte" class="dossier-link"><span class="dossier-ref" aria-hidden="true">02</span> Deloitte</a></li>
-              <li><a href="#exp-ies" class="dossier-link"><span class="dossier-ref" aria-hidden="true">03</span> IES Isabel de Castilla</a></li>
+              <li><a href="#exp-ies" class="dossier-link"><span class="dossier-ref" aria-hidden="true">01</span> IES Isabel de Castilla</a></li>
             </ul>
           </nav>
 
@@ -551,7 +553,7 @@
 
             <article class="dossier-entry" id="exp-ors">
               <header class="entry-head">
-                <p class="entry-ref" aria-hidden="true">EXP–01</p>
+                <p class="entry-ref" aria-hidden="true">EXP–03</p>
                 <h3 class="entry-title">Developer &amp; Tech Consultant</h3>
                 <p class="entry-org">ORS Consulting · Madrid</p>
                 <p class="entry-period">
@@ -589,7 +591,7 @@
 
             <article class="dossier-entry" id="exp-ies">
               <header class="entry-head">
-                <p class="entry-ref" aria-hidden="true">EXP–03</p>
+                <p class="entry-ref" aria-hidden="true">EXP–01</p>
                 <h3 class="entry-title">Especialista informático</h3>
                 <p class="entry-org">IES Isabel de Castilla · Ávila</p>
                 <p class="entry-period">Marzo 2022 – Junio 2022</p>
@@ -820,6 +822,8 @@
   </dialog>
 
   <script src="js/main.js"></script>
+  <!-- Cursor personalizado por sección (solo puntero fino, ver js/cursor.js) -->
+  <script src="js/cursor.js"></script>
 
   <!-- Librerías desde CDN (sin build step; versiones fijadas) -->
   <!-- Three.js para la constelación 3D -->

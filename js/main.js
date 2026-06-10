@@ -116,6 +116,8 @@
   function checkConstellation() {
     if (!constellationRoot) return;
     if (constellationRoot.dataset.ready === "true") return;
+    // Visible solo como overlay del panel-chip: no es una constelación fallida
+    if (constellationRoot.classList.contains("is-chip-open")) return;
     if (getComputedStyle(constellationRoot).display === "none") return;
     constellationRoot.classList.add("is-failed");
   }
@@ -129,6 +131,83 @@
     window.addEventListener("resize", function () {
       clearTimeout(constellationResizeTimer);
       constellationResizeTimer = setTimeout(checkConstellation, 2000);
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     Stack en móvil/fallback: cuadrícula de chips. La .tech-list sigue siendo
+     la única fuente de datos: aquí solo se inyecta un <button> por <li> y se
+     reutiliza el panel role="dialog" de la constelación, abierto sin Three.js
+     (el vuelo de cámara es cosa de constellation.js; este flujo funciona
+     aunque la constelación no se haya inicializado). En escritorio los chips
+     quedan ocultos por CSS junto con la lista.
+     ------------------------------------------------------------------------ */
+  var techList = document.querySelector("#stack .tech-list");
+  var techPanel = constellationRoot ? constellationRoot.querySelector(".tech-panel") : null;
+
+  if (techList && techPanel) {
+    var techPanelTitle = techPanel.querySelector(".tech-panel-title");
+    var techPanelBody = techPanel.querySelector(".tech-panel-body");
+    var techPanelClose = techPanel.querySelector(".tech-panel-close");
+    var techCloseLabel = techPanelClose.textContent;
+    var chipOpen = false;
+    var chipOpener = null;
+
+    var openChipPanel = function (item, chip) {
+      if (chipOpen) return;
+      chipOpen = true;
+      chipOpener = chip;
+      techPanelTitle.textContent = item.querySelector(".tech-name").textContent;
+      techPanelBody.innerHTML =
+        item.querySelector(".tech-what").outerHTML +
+        item.querySelector(".tech-where").outerHTML;
+      // Aquí no hay constelación a la que "volver"
+      techPanelClose.textContent = "Cerrar";
+      techPanel.hidden = false;
+      constellationRoot.classList.add("is-chip-open");
+      void techPanel.offsetWidth; // primer layout antes de animar la tarjeta
+      constellationRoot.classList.add("is-open");
+      document.documentElement.classList.add("tech-panel-lock");
+      techPanelClose.focus();
+    };
+
+    var closeChipPanel = function () {
+      if (!chipOpen) return;
+      chipOpen = false;
+      constellationRoot.classList.remove("is-open", "is-chip-open");
+      document.documentElement.classList.remove("tech-panel-lock");
+      techPanel.hidden = true;
+      techPanelClose.textContent = techCloseLabel;
+      if (chipOpener) chipOpener.focus();
+    };
+
+    techList.querySelectorAll(".tech-item").forEach(function (item) {
+      var name = item.querySelector(".tech-name");
+      if (!name) return;
+      var chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "tech-chip";
+      chip.setAttribute("aria-haspopup", "dialog");
+      chip.textContent = name.textContent;
+      chip.addEventListener("click", function () { openChipPanel(item, chip); });
+      item.insertBefore(chip, item.firstChild);
+    });
+    techList.classList.add("has-chips");
+
+    // Mismo contrato que la versión 3D: cerrar con botón, backdrop y Escape;
+    // mientras está abierto el foco se queda en el botón de cierre (guardas
+    // con chipOpen para no pisar los handlers propios de constellation.js)
+    techPanelClose.addEventListener("click", closeChipPanel);
+    techPanel.addEventListener("click", function (event) {
+      if (event.target === techPanel) closeChipPanel();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (!chipOpen) return;
+      if (event.key === "Escape") closeChipPanel();
+      if (event.key === "Tab") {
+        event.preventDefault();
+        techPanelClose.focus();
+      }
     });
   }
 

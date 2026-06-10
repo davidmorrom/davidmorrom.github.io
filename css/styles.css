@@ -950,10 +950,12 @@ html.lenis body {
   align-items: baseline;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  /* elevadas sobre el fondo de página, como el resto de tarjetas */
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
+  box-shadow: var(--shadow-soft);
 }
 
 .about-points strong {
@@ -1204,11 +1206,69 @@ html.lenis body {
   gap: var(--space-4);
 }
 
+/* Modo chips (móvil / fallback con JS): main.js inyecta un botón .tech-chip
+   por tecnología y añade .has-chips → la lista pasa de tarjetas a cuadrícula
+   de píldoras que abren el mismo panel .tech-panel de la constelación.
+   Sin JS no hay chips: queda la lista de tarjetas con todo el contenido. */
+.tech-list.has-chips {
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.tech-list.has-chips .tech-item {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+/* El contenido completo sigue en el DOM (es la fuente de datos del panel y
+   de la constelación), pero en modo chips lo muestra el panel, no la lista */
+.tech-list.has-chips .tech-name,
+.tech-list.has-chips .tech-what,
+.tech-list.has-chips .tech-where {
+  display: none;
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem; /* área de toque ≥ 44 px */
+  padding: 0.45rem 1.05rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Punto-estrella decorativo: cian solo como relleno, sin texto encima
+   (válido también en claro); el affordance lo dan borde, forma y cursor */
+.tech-chip::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 6px 1px rgba(var(--accent-2-rgb), 0.55);
+}
+
+.tech-chip:hover,
+.tech-chip:focus-visible {
+  border-color: var(--accent);
+  background: var(--surface-raised);
+}
+
 .tech-item {
   padding: var(--space-5);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
 }
 
 .tech-name {
@@ -1242,6 +1302,10 @@ html.lenis body {
   .tech-list {
     display: grid;
   }
+
+  .tech-list.has-chips {
+    display: flex;
+  }
 }
 
 /* Si Three.js no pudo inicializar (CDN caído, sin WebGL), main.js añade
@@ -1252,6 +1316,48 @@ html.lenis body {
 
 .constellation.is-failed ~ .tech-list {
   display: grid;
+}
+
+.constellation.is-failed ~ .tech-list.has-chips {
+  display: flex;
+}
+
+/* Panel abierto desde un chip (main.js): la constelación está oculta en ese
+   modo, así que reaparece SOLO como overlay fijo, con el cielo apagado, para
+   reutilizar exactamente el mismo dialog .tech-panel. No requiere Three.js.
+   (Va después de .is-failed para ganarle también en ese caso.) */
+.constellation.is-chip-open {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  border-radius: 0;
+  /* mismo scrim que el backdrop del visor de certificados */
+  background: rgba(2, 6, 16, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.constellation.is-chip-open .constellation-sky {
+  display: none;
+}
+
+/* En overlay el panel puede ser más alto que el viewport (móvil apaisado):
+   scroll propio + centrado "seguro" vía margin:auto de la tarjeta */
+.constellation.is-chip-open .tech-panel {
+  display: flex;
+  overflow-y: auto;
+}
+
+.constellation.is-chip-open .tech-panel-card {
+  margin: auto;
+}
+
+/* Mientras el panel-chip está abierto se bloquea el scroll de fondo
+   (mismo patrón transitorio que html.cert-modal-lock) */
+html.tech-panel-lock,
+html.tech-panel-lock body {
+  overflow: hidden;
 }
 
 /* --------------------------------------------------------------------------
@@ -1282,16 +1388,49 @@ html.lenis body {
   flex-direction: column;
   gap: var(--space-3);
   padding: var(--space-6);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  /* elevadas sobre el fondo de página (raised + borde fuerte + sombra) */
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-raised);
+}
+
+/* Familias de proyecto: trabajo (cobalto) vs personal (cian). El significado
+   lo lleva el distintivo .project-flag (icono + texto); el borde superior y
+   el tinte radial solo lo refuerzan — el color nunca va solo.
+   (Después de :hover para conservar el color de familia también al pasar.) */
+.project-card--work,
+.project-card--personal {
+  border-top-width: 3px;
+}
+
+.project-card--work {
+  border-top-color: var(--accent);
+  background:
+    radial-gradient(120% 95% at 100% 0%, rgba(var(--accent-rgb), 0.14), transparent 55%),
+    var(--surface-raised);
+}
+
+.project-card--personal {
+  border-top-color: var(--accent-2);
+  background:
+    radial-gradient(120% 95% at 100% 0%, rgba(var(--accent-2-rgb), 0.14), transparent 55%),
+    var(--surface-raised);
+}
+
+.project-card--work:hover {
+  border-color: var(--accent);
+}
+
+.project-card--personal:hover {
+  border-color: var(--accent-2);
 }
 
 .project-meta {
@@ -1312,13 +1451,45 @@ html.lenis body {
 .project-tag {
   color: var(--text-secondary);
   border: 1px solid var(--border);
-  background: var(--surface-raised);
+  /* --surface (no raised): la tarjeta que lo contiene ya es raised */
+  background: var(--surface);
+}
+
+/* Distintivo de origen del proyecto: sólido cobalto (trabajo) o cian
+   (personal, tokens --chip-cyan-*: texto oscuro AA en ambos temas) */
+.project-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.project-flag--work {
+  /* AA justo (4.5:1) con blanco: no oscurecer texto ni aclarar fondo */
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.project-flag--personal {
+  background: var(--chip-cyan-bg);
+  color: var(--chip-cyan-text);
+}
+
+.project-flag-ico {
+  width: 0.95em;
+  height: 0.95em;
+  flex-shrink: 0;
 }
 
 /* Estado: icono + texto, el color nunca es el único portador */
 .project-status {
   color: var(--accent);
   border: 1px solid var(--border-strong);
+  background: rgba(var(--accent-rgb), 0.1);
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -1352,9 +1523,22 @@ html.lenis body {
   font-size: var(--fs-sm);
   color: var(--text);
   padding: 0.3rem 0.75rem;
-  background: var(--surface-raised);
+  /* base neutra --surface (la tarjeta es raised); las familias la tintan */
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
+}
+
+/* Chips de stack tintados con el color de su familia (solo relleno/borde:
+   el texto sigue siendo --text, AA+ sobre los tintes en ambos temas) */
+.project-card--work .project-stack li {
+  background: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.45);
+}
+
+.project-card--personal .project-stack li {
+  background: rgba(var(--accent-2-rgb), 0.12);
+  border-color: rgba(var(--accent-2-rgb), 0.45);
 }
 
 @media (max-width: 63.9rem) {
@@ -1436,9 +1620,10 @@ html.lenis body {
 
 .dossier-entry {
   padding: var(--space-6);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
   scroll-margin-top: calc(var(--header-h) + var(--space-5));
 }
 
@@ -1481,7 +1666,8 @@ html.lenis body {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   color: var(--text);
-  background: var(--surface-raised);
+  /* --surface (no raised): la entrada que lo contiene ya es raised */
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   padding: 0.35rem 0.85rem;
@@ -1585,20 +1771,26 @@ html.lenis body {
   gap: var(--space-5);
 }
 
+/* Tarjetas elevadas sobre el fondo de página (petición de David, junio 2026):
+   superficie raised + tinte radial suave + borde fuerte + sombra en reposo.
+   En la parte baja de la página --surface ≈ --bg-bottom y se fundían. */
 .education-card {
   display: flex;
   flex-direction: column;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(var(--accent-rgb), 0.08), transparent 60%),
+    var(--surface-raised);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-soft);
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .education-card:hover {
   transform: translateY(-4px);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-soft);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-raised);
 }
 
 /* Caja blanca/neutra para el logo real de la institución */
@@ -1678,11 +1870,15 @@ html.lenis body {
   margin-top: var(--space-5);
 }
 
+/* Elevadas como las titulaciones; tinte cian (solo relleno) para alternar */
 .extra-card {
   padding: var(--space-5) var(--space-6);
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background:
+    radial-gradient(120% 90% at 85% -10%, rgba(var(--accent-2-rgb), 0.1), transparent 55%),
+    var(--surface-raised);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
 }
 
 .extra-title {
@@ -1737,7 +1933,8 @@ html.lenis body {
   align-items: center;
   gap: 0.4rem;
   padding: 0.25rem 0.7rem;
-  background: var(--surface-raised);
+  /* --surface (no raised): la tarjeta que los contiene ya es raised */
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   color: var(--accent);
@@ -1933,4 +2130,81 @@ html.cert-modal-lock body {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* --------------------------------------------------------------------------
+   14. CURSOR PERSONALIZADO (js/cursor.js)
+   Solo escritorio con puntero fino y sin reduced-motion (lo decide el JS:
+   sin JS no existe el elemento ni se oculta el cursor nativo).
+   html.cursor-active la añade el JS tras el PRIMER mousemove: si el script
+   falla, el cursor del sistema queda intacto.
+   -------------------------------------------------------------------------- */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  /* por encima de header (50), overlay de chips (70) y skip-link (100) */
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  /* cian como texto en oscuro → cobalto en claro (regla del cian) */
+  color: var(--accent-2-text);
+  filter: drop-shadow(0 1px 3px var(--shadow-ink));
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+/* Contenedor centrado en el puntero; el crecimiento sobre interactivos va
+   aquí (la posición la lleva el transform del .custom-cursor desde JS) */
+.cursor-glyphs {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease;
+}
+
+.custom-cursor.is-pointer .cursor-glyphs {
+  transform: translate(-50%, -50%) scale(1.45);
+}
+
+/* Cada símbolo se funde con el siguiente (fade + scale corto, sin saltos) */
+.cursor-glyph {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.55);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.cursor-glyph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-cursor[data-glyph="cross"]  .cursor-glyph[data-name="cross"],
+.custom-cursor[data-glyph="rocket"] .cursor-glyph[data-name="rocket"],
+.custom-cursor[data-glyph="braces"] .cursor-glyph[data-name="braces"],
+.custom-cursor[data-glyph="pin"]    .cursor-glyph[data-name="pin"],
+.custom-cursor[data-glyph="cap"]    .cursor-glyph[data-name="cap"] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Cursor nativo oculto SOLO con el personalizado activo confirmado.
+   Excepción cert-modal-lock: el <dialog> del visor vive en el top layer
+   (el cursor custom quedaría debajo de su backdrop) → ahí se restaura el
+   nativo y se oculta el personalizado. */
+html.cursor-active:not(.cert-modal-lock),
+html.cursor-active:not(.cert-modal-lock) * {
+  cursor: none;
+}
+
+html.cert-modal-lock .custom-cursor {
+  opacity: 0;
 }
